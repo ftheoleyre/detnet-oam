@@ -138,6 +138,7 @@
  
 	<section title="Terminology">
     	<t>
+            We adopt here the following terminology:
         	<list style="symbols">
             	<t>
                		OAM entity: a data flow to be controlled;
@@ -145,7 +146,7 @@
             
             	<t>
                		Maintenance End Point (MEP): OAM devices crossed when entering/exiting
-                    the network. In RAW, it corresponds mostly to the source or destination
+                    the network. In detnet, it corresponds mostly to the source or destination
                     of a data flow. OAM message can be exchanges between two MEPs;
             	</t>
          
@@ -195,7 +196,7 @@
 
 
 <!-- INTEREST OF OAM          -->
-<section title="Role of OAM in RAW">
+<section title="Role of OAM in detnet">
 	<t>
       detnet networks expect to make the communications reliable and predictable.
       Most critical applications will define an SLO to be required for the data flows it
@@ -226,9 +227,7 @@ Strictly speaking, PREOF also includes an order preservation. Do you see it as t
       OAM is in charge of controlling that PREOF is working properly on a node and within the domain.
 	</t>
 
-	<t>
-       RAW supports both proactive and on-demand troubleshooting.
-	</t>
+	
 </section>
 
 
@@ -237,7 +236,7 @@ Strictly speaking, PREOF also includes an order preservation. Do you see it as t
 <!--  OPERATION          -->
 <section title="Operation">
 	<t>
-    	OAM features will enable RAW with robust operation both for forwarding and routing 
+    	OAM features will enable detnet with robust operation both for forwarding and routing
     	purposes.
 	</t>
     
