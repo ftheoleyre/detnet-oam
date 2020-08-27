@@ -339,8 +339,7 @@ Strictly speaking, PREOF also includes an order preservation. Do you see it as t
 	<section title="Fault Isolation/identification">
     	<t>
         	The network has isolated and identified the cause of the fault. 
-        	For instance, the quality of a specific link has decreased, requiring more 
-        	retransmissions, or the level of external interference has locally increased.
+        	For instance, the replication process behaves not as expected to a specific intermediary router. 
 		</t>
 	</section>
 </section>
@@ -547,23 +546,7 @@ This section will be expanded in future versions of the draft.
         <?rfc include="reference.RFC.2119"?> <!-- Key words for use in RFCs to Indicate Requirement Levels  -->
 
       
-      <reference anchor="ipath" target="https://doi.org/10.1109/TNET.2014.2371459">
-         <front>
-            <title>iPath: path inference in wireless sensor networks.</title>
-            <author initials="Y." surname="Gao" fullname="Y.Gao"></author>
-            <author initials="W." surname="Dong" fullname="W. Dong"></author>
-            <author initials="C." surname="Chen" fullname="C. Chen"></author>
-            <author initials="J." surname="Bu" fullname="J. Bu"></author>
-            <author initials="W." surname="Wu" fullname="W. Wu"></author>
-            <author initials="X." surname="Liu" fullname="X. Liu"></author>
-            <date year="2016"/>
-            <!--
-             IEEE/ACM Transactions on Networking (TON) archive
-             Volume 24 Issue 1, February 2016
-             Pages 517-528
-             -->
-         </front>
-      </reference>
+   
       
       
    </references>
