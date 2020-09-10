@@ -140,30 +140,47 @@
     	<t>
             We adopt here the following terminology:
         	<list style="symbols">
-            	<t>
-               		OAM entity: a data flow to be controlled;
-            	</t>
-            
-            	<t>
-               		Maintenance End Point (MEP): OAM devices crossed when entering/exiting
-                    the network. In detnet, it corresponds mostly to the source or destination
-                    of a data flow. OAM message can be exchanges between two MEPs;
-            	</t>
-         
-                <t>
-                    Maintenance Intermediate end Point (MIP): OAM devices along the flow;
-                    OAM messages can be exchanged between a MEP and a MIP;
-                </t>
+            	 <t>
+                    OAM entity: a data flow to be controlled;
+                   </t>
+                   
+               <!-- TODO-Greg-
+               
+               I think it is useful to differentiate between MEP and MIP. But we need to consider the origin of the term is Layer 2. For IETF we might choose/define somewhat different terms, e.g., Test Point for MEP and Monitor Point for MIP.
+               -->
+           
+               <t>
+                   Maintenance End Point (MEP): OAM devices crossed when entering/exiting
+                   the network. In RAW, it corresponds mostly to the source or destination
+                   of a data flow. OAM message can be exchanges between two MEPs;
+               </t>
+        
+               <t>
+                   Maintenance Intermediate endPoint (MIP): OAM devices along the flow;
+                   OAM messages can be exchanged between a MEP and a MIP;
+               </t>
 
-                <t>
-            		Defect: a temporary change in the network (e.g. a radio link which is
-                    broken due to a mobile obstacle);
-         		</t>
          
-         		<t>
-            		Fault: a definite change which may affect the network performance,
-            		e.g. a node runs out of energy.
-            	</t>
+     
+               <t>control/data plane: while the control plane expects to configure and control the network (long-term), the data plane takes the individual decision;
+                   </t>
+               
+               <t>In-band: control information follows the same path as the data packets.
+                   In other words, a failure in the data plane may prevent the control information to reach the destination (e.g., end-device or controller).
+                   </t>
+               
+               <t>out-of-band: control information is sent separately from the data packets.
+                   Thus, the behavior of control vs. data packets may differ;
+                   </t>
+               <t>passive / active monitoring:
+                   active monitoring consists in sending additionnal control information.
+                   Passive monitoring consists in infering information from measurements on existing packets.
+                   </t>
+               
+                   
+                   
+                   
+          
          	</list>
     	</t>
 	</section>
@@ -248,6 +265,12 @@ Strictly speaking, PREOF also includes an order preservation. Do you see it as t
            <t>
                Several solutions (e.g., Simple Network Management Protocol (SNMP), YANG-based data models) are already in charge of collecting the statistics.
                That way, we can encapsulate these statistics in specific monitoring packets, to send them to the controller.
+               </t>
+           
+           
+           <t>
+               We must make a distinction between the model for transfering OAM information, and the way the information is transfered.
+               For instance, OAM information may be transfered out-of-band or in-band.
                </t>
            </section>
 
