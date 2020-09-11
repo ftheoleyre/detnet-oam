@@ -85,7 +85,7 @@
 
         
 
-<!--section title="TEMPORARY EDITORIAL NOTES">
+<section title="TEMPORARY EDITORIAL NOTES">
 
    <t>
 		This document is an Internet Draft, so it is work-in-progress by nature.
@@ -97,10 +97,12 @@
 		<t>"TODO" statements are elements which have not yet been written by the authors 
 		for some reason (lack of time, ongoing discussions with no clear consensus, etc).
 		The statement does indicate that the text will be written at some time.</t>
+        
    	</list>
+    
    </t>
    		 
-</section --> 
+</section>
 
 
 
@@ -116,15 +118,13 @@
     <t>
         Operations, Administration, and Maintenance (OAM) Tools are of primary importance
         for IP networks <xref target="RFC7276"/>.
-        It defines a toolset for fault detection and isolation, and for performance measurement.
+        We need a toolset for fault detection and isolation, and for performance measurement.
     </t>
        
     <t>
         The main purpose of this document is to detail the specific requirements of the OAM
-        features recommended to construct a predictable communication infrastructure
-        on top of a collection of wireless segments.
-      	This document describes the benefits, problems, and trade-offs for using OAM in 
-    	deterministic networks.
+        features recommended to maintain a deterministic network.
+        Specifically, it investigates the requirements for a deterministic network, supporting critical flows.
 	</t>
     
    <t>
@@ -159,26 +159,30 @@
                    Maintenance Intermediate endPoint (MIP): OAM devices along the flow;
                    OAM messages can be exchanged between a MEP and a MIP;
                </t>
-
-         
      
                <t>control/data plane: while the control plane expects to configure and control the network (long-term), the data plane takes the individual decision;
                    </t>
                
-               <t>In-band: control information follows the same path as the data packets.
-                   In other words, a failure in the data plane may prevent the control information to reach the destination (e.g., end-device or controller).
-                   </t>
+        
+               <t>passive / active methods (as defined in <xref target="RFC7799"/>):
+                  active methods send additionnal control information (inserting novel fields, generating novel control packets).
+                  Passive methods infer information just by observing unmodified existing flows.
+                  
+                  <vspace blankLines="1" />
+              
+                Active methods may implement one of these two strategies:
+               <list style="symbols">
                
-               <t>out-of-band: control information is sent separately from the data packets.
-                   Thus, the behavior of control vs. data packets may differ;
+                   <t>
+                       In-band: control information follows the same path as the data packets.
+                       In other words, a failure in the data plane may prevent the control information to reach the destination (e.g., end-device or controller).
                    </t>
-               <t>passive / active monitoring:
-                   active monitoring consists in sending additionnal control information.
-                   Passive monitoring consists in infering information from measurements on existing packets.
+                   <t>
+                       out-of-band: control information is sent separately from the data packets.
+                       Thus, the behavior of control vs. data packets may differ;
                    </t>
-               
-                   
-                   
+               </list>
+               </t>
                    
           
          	</list>
@@ -193,6 +197,8 @@
     <t>QoS                   Quality of Service</t>
     <t>SNMP               Simple Network Management Protocol</t>
     <t>SDN                  Software Defined Network</t>
+    <t>&lt;TODO&gt; we need here an exhaustive list, to be completed after the document has evolved.</t>
+    
     </section>
 
             <section title="Requirements Language">
@@ -225,8 +231,7 @@
       To respect strict guarantees, detnet relies on an orchestrator able to monitor and
       maintain the network.
       Typically, a Software Defined Network (SDN) controller is in charge of scheduling the transmissions
-      in the deployed network, based on the radio link characteristics, SLO of the flows, the
-      number of packets to forward.
+      in the deployed network, based on the radio link characteristics, the Service Level Objectives (SLO) of the flows, the number of packets to forward.
       Thus, resources have to be provisioned a priori to handle any defect. 
       OAM represents the core of the over provisioning process, and maintains the network 
       operational by updating the schedule dynamically.
@@ -567,6 +572,7 @@ This section will be expanded in future versions of the draft.
         <?rfc include="reference.RFC.8174"?> <!-- Ambiguity of Uppercase vs Lowercase -->
         <?rfc include="reference.RFC.8655"?> <!-- Deterministic Networking Architecture -->
         <?rfc include="reference.RFC.2119"?> <!-- Key words for use in RFCs to Indicate Requirement Levels  -->
+        <?rfc include="reference.RFC.7799"?> <!-- passive / active methods   -->
 
       
    
