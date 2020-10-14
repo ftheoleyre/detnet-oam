@@ -508,7 +508,6 @@ Internet-Draft           OAM features for DetNet            October 2020
 
    Fabrice Theoleyre
    CNRS
-   Building B
    300 boulevard Sebastien Brant - CS 10413
    Illkirch - Strasbourg  67400
    FRANCE
@@ -539,6 +538,7 @@ Internet-Draft           OAM features for DetNet            October 2020
    Universidad Carlos III de Madrid
 
    Email: cjbc@it.uc3m.es
+
 
 
 
