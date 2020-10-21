@@ -5,12 +5,12 @@
 DetNet                                                      F. Theoleyre
 Internet-Draft                                                      CNRS
 Intended status: Standards Track                         G. Papadopoulos
-Expires: April 17, 2021                                   IMT Atlantique
+Expires: April 24, 2021                                   IMT Atlantique
                                                                G. Mirsky
                                                                ZTE Corp.
                                                             C. Bernardos
                                         Universidad Carlos III de Madrid
-                                                        October 14, 2020
+                                                        October 21, 2020
 
 
   Operations, Administration and Maintenance (OAM) features for DetNet
@@ -26,8 +26,8 @@ Abstract
    recommended to maintain a deterministic network.  With the
    implementation of the OAM framework in DetNet, an operator will have
    a real-time view of the network infrastructure regarding the
-   network's ability to respect the Service Level Objective, such as
-   packet delay, delay variation, and packet loss ratio, assigned to
+   network's ability to respect the Service Level Objective (SLO), such
+   as packet delay, delay variation, and packet loss ratio, assigned to
    each data flow.
 
 Status of This Memo
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 17, 2021.
+   This Internet-Draft will expire on April 24, 2021.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Theoleyre, et al.        Expires April 17, 2021                 [Page 1]
+Theoleyre, et al.        Expires April 24, 2021                 [Page 1]
 
 Internet-Draft           OAM features for DetNet            October 2020
 
@@ -99,7 +99,7 @@ Table of Contents
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
    9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   9
    10. Informative References  . . . . . . . . . . . . . . . . . . .   9
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  10
 
 1.  TEMPORARY EDITORIAL NOTES
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Theoleyre, et al.        Expires April 17, 2021                 [Page 2]
+Theoleyre, et al.        Expires April 24, 2021                 [Page 2]
 
 Internet-Draft           OAM features for DetNet            October 2020
 
@@ -129,7 +129,7 @@ Internet-Draft           OAM features for DetNet            October 2020
 
    Operations, Administration, and Maintenance (OAM) Tools are of
    primary importance for IP networks [RFC7276].  We need a toolset for
-   fault detection and localization and performance measurement.
+   fault detection, localization, and performance measurement.
 
    This document's primary purpose is to detail the specific
    requirements of the OAM features recommended to maintain a
@@ -165,21 +165,21 @@ Internet-Draft           OAM features for DetNet            October 2020
 
 
 
-Theoleyre, et al.        Expires April 17, 2021                 [Page 3]
+Theoleyre, et al.        Expires April 24, 2021                 [Page 3]
 
 Internet-Draft           OAM features for DetNet            October 2020
 
 
    o  Active measurement methods (as defined in [RFC7799]) modify normal
       data flow by inserting novel fields, injecting specially
-      constructed test packets.  It is critical for the quality of
-      information obtained using an active method that generated test
-      packets are in-band with the monitored data flow.  In other words,
-      a test packet is required to cross the same network nodes and
-      links and receive the same Quality of Service (QoS) treatment as a
-      data packet.
+      constructed test packets [RFC2544]).  It is critical for the
+      quality of information obtained using an active method that
+      generated test packets are in-band with the monitored data flow.
+      In other words, a test packet is required to cross the same
+      network nodes and links and receive the same Quality of Service
+      (QoS) treatment as a data packet.
 
-   o  Passive measurement methods [RFC7799] infer information just by
+   o  Passive measurement methods [RFC7799] infer information by
       observing unmodified existing flows.
 
    o  Hybrid measurement methods [RFC7799] is the combination of
@@ -221,12 +221,12 @@ Internet-Draft           OAM features for DetNet            October 2020
 
 
 
-Theoleyre, et al.        Expires April 17, 2021                 [Page 4]
+Theoleyre, et al.        Expires April 24, 2021                 [Page 4]
 
 Internet-Draft           OAM features for DetNet            October 2020
 
 
-   Network (SDN) controller placies DetNet flows in the deployed network
+   Network (SDN) controller places DetNet flows in the deployed network
    based on their the SLO.  Thus, resources have to be provisioned a
    priori for the regular operation of the network.  OAM represents the
    essential elements of the network operation and necessary for OAM
@@ -236,9 +236,9 @@ Internet-Draft           OAM features for DetNet            October 2020
    Fault-tolerance also assumes that multiple paths could be provisioned
    so that an end-to-end circuit keeps on existing whatever the
    conditions.  The central controller/orchestrator typically controls
-   the replication/elimination processes (PREOF) on a node.  OAM is
-   expected to support monitoring and troubleshooting PREOF on a
-   particular node and within the domain.
+   the Packet Replication, Elimination, and Ordering Functions (PREOF)
+   on a node.  OAM is expected to support monitoring and troubleshooting
+   PREOF on a particular node and within the domain.
 
 4.  Operation
 
@@ -248,7 +248,7 @@ Internet-Draft           OAM features for DetNet            October 2020
 4.1.  Information Collection
 
    Information about the state of the network can be collected using
-   several principles.  Some protocols, e.g., Simple Network Management
+   several mechanisms.  Some protocols, e.g., Simple Network Management
    Protocol (SNMP), send queries.  Others, e.g., YANG-based data models,
    generate notifications based on the publish-subscribe method.  In
    either way, information about the state of the network being
@@ -277,7 +277,7 @@ Internet-Draft           OAM features for DetNet            October 2020
 
 
 
-Theoleyre, et al.        Expires April 17, 2021                 [Page 5]
+Theoleyre, et al.        Expires April 24, 2021                 [Page 5]
 
 Internet-Draft           OAM features for DetNet            October 2020
 
@@ -298,7 +298,9 @@ Internet-Draft           OAM features for DetNet            October 2020
    specific flow.
 
    DetNet with IP data plane is NOT RECOMMENDED to use multiple paths or
-   links, i.e., Equal-Cost Multipath (ECMP) [I-D.ietf-detnet-ip].
+   links, i.e., Equal-Cost Multipath (ECMP) [I-D.ietf-detnet-ip].  As
+   the result, OAM in IP ECMP environment is outside the scope of this
+   document.
 
 4.5.  Fault Verification/detection
 
@@ -329,18 +331,18 @@ Internet-Draft           OAM features for DetNet            October 2020
    o  Buffer occupancy: the number of packets present in the buffer, for
       each of the existing flows.
 
-   These metrics should be collected:
 
 
-
-Theoleyre, et al.        Expires April 17, 2021                 [Page 6]
+Theoleyre, et al.        Expires April 24, 2021                 [Page 6]
 
 Internet-Draft           OAM features for DetNet            October 2020
 
 
+   These metrics should be collected:
+
    o  per virtual circuit to measure the end-to-end performance for a
       given flow.  Each of the paths has to be isolated in multipath
-      routing strategies;
+      routing strategies.
 
    o  per path to detect misbehaving path when multiple paths are
       applied.
@@ -373,7 +375,7 @@ Internet-Draft           OAM features for DetNet            October 2020
    relevance of a reconfiguration, quantifying:
 
       the cost of the sub-optimality: resources may not be used
-      optimally (e.g., a better path exists);
+      optimally (e.g., a better path exists).
 
       the reconfiguration cost: the controller needs to trigger some
       reconfigurations.  For this transient period, resources may be
@@ -387,9 +389,7 @@ Internet-Draft           OAM features for DetNet            October 2020
 
 
 
-
-
-Theoleyre, et al.        Expires April 17, 2021                 [Page 7]
+Theoleyre, et al.        Expires April 24, 2021                 [Page 7]
 
 Internet-Draft           OAM features for DetNet            October 2020
 
@@ -400,9 +400,9 @@ Internet-Draft           OAM features for DetNet            October 2020
    packet replication may be used to introduce redundancy and alleviate
    transmission errors and collisions.  For instance, in Figure 1, the
    source node S is transmitting the packet to both parents, nodes A and
-   B.  Each maintenance endpoint will decide to trigger the replication/
-   elimination process when a set of metrics passes through a threshold
-   value.
+   B.  Each maintenance endpoint will decide to trigger the packet
+   replication, elimination or the ordering process when a set of
+   metrics passes a threshold value.
 
 
                           ===> (A) => (C) => (E) ===
@@ -445,7 +445,7 @@ Internet-Draft           OAM features for DetNet            October 2020
 
 
 
-Theoleyre, et al.        Expires April 17, 2021                 [Page 8]
+Theoleyre, et al.        Expires April 24, 2021                 [Page 8]
 
 Internet-Draft           OAM features for DetNet            October 2020
 
@@ -465,6 +465,11 @@ Internet-Draft           OAM features for DetNet            October 2020
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC2544]  Bradner, S. and J. McQuaid, "Benchmarking Methodology for
+              Network Interconnect Devices", RFC 2544,
+              DOI 10.17487/RFC2544, March 1999,
+              <https://www.rfc-editor.org/info/rfc2544>.
 
    [RFC6291]  Andersson, L., van Helvoort, H., Bonica, R., Romascanu,
               D., and S. Mansfield, "Guidelines for the Use of the "OAM"
@@ -491,20 +496,17 @@ Internet-Draft           OAM features for DetNet            October 2020
               DOI 10.17487/RFC8655, October 2019,
               <https://www.rfc-editor.org/info/rfc8655>.
 
-Authors' Addresses
 
 
 
 
 
-
-
-
-
-Theoleyre, et al.        Expires April 17, 2021                 [Page 9]
+Theoleyre, et al.        Expires April 24, 2021                 [Page 9]
 
 Internet-Draft           OAM features for DetNet            October 2020
 
+
+Authors' Addresses
 
    Fabrice Theoleyre
    CNRS
@@ -555,6 +557,4 @@ Internet-Draft           OAM features for DetNet            October 2020
 
 
 
-
-
-Theoleyre, et al.        Expires April 17, 2021                [Page 10]
+Theoleyre, et al.        Expires April 24, 2021                [Page 10]
