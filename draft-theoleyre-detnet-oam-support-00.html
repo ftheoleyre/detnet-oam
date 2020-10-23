@@ -401,14 +401,14 @@
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.32.0 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.47.0 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Theoleyre, F., Papadopoulos, G., Mirsky, G., and C. Bernardos" />
+  <meta name="dct.creator" content="Theoleyre, F., Papadopoulos, G., Mirsky, G., and CJ. Bernardos" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-theoleyre-detnet-oam-support-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2020-21" />
-  <meta name="dct.abstract" content="Deterministic Networking (DetNet), as defined in RFC 8655, is aimed to provide a bounded end-to-end latency on top of the network infrastructure, comprising both Layer 2 bridged and Layer 3 routed segments.  This document's primary purpose is to detail the specific requirements of the Operation, Administration, and Maintenance (OAM) recommended to maintain a deterministic network. With the implementation of the OAM framework in DetNet, an operator will have a real-time view of the network infrastructure regarding the network's ability to respect the Service Level Objective (SLO), such as packet delay, delay variation, and packet loss ratio, assigned to each data flow.  " />
-  <meta name="description" content="Deterministic Networking (DetNet), as defined in RFC 8655, is aimed to provide a bounded end-to-end latency on top of the network infrastructure, comprising both Layer 2 bridged and Layer 3 routed segments.  This document's primary purpose is to detail the specific requirements of the Operation, Administration, and Maintenance (OAM) recommended to maintain a deterministic network. With the implementation of the OAM framework in DetNet, an operator will have a real-time view of the network infrastructure regarding the network's ability to respect the Service Level Objective (SLO), such as packet delay, delay variation, and packet loss ratio, assigned to each data flow.  " />
+  <meta name="dct.issued" scheme="ISO8601" content="2020-23" />
+  <meta name="dct.abstract" content="Deterministic Networking (DetNet), as defined in RFC 8655, is aimed to provide a bounded end-to-end latency on top of the network infrastructure, comprising both Layer 2 bridged and Layer 3 routed segments.  This document&#x27;s primary purpose is to detail the specific requirements of the Operation, Administration, and Maintenance (OAM) recommended to maintain a deterministic network. With the implementation of the OAM framework in DetNet, an operator will have a real-time view of the network infrastructure regarding the network&#x27;s ability to respect the Service Level Objective (SLO), such as packet delay, delay variation, and packet loss ratio, assigned to each data flow.   " />
+  <meta name="description" content="Deterministic Networking (DetNet), as defined in RFC 8655, is aimed to provide a bounded end-to-end latency on top of the network infrastructure, comprising both Layer 2 bridged and Layer 3 routed segments.  This document&#x27;s primary purpose is to detail the specific requirements of the Operation, Administration, and Maintenance (OAM) recommended to maintain a deterministic network. With the implementation of the OAM framework in DetNet, an operator will have a real-time view of the network infrastructure regarding the network&#x27;s ability to respect the Service Level Objective (SLO), such as packet delay, delay variation, and packet loss ratio, assigned to each data flow.   " />
 
 </head>
 
@@ -430,7 +430,7 @@
 <td class="right">G. Papadopoulos</td>
 </tr>
 <tr>
-<td class="left">Expires: April 24, 2021</td>
+<td class="left">Expires: April 26, 2021</td>
 <td class="right">IMT Atlantique</td>
 </tr>
 <tr>
@@ -443,15 +443,15 @@
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">C. Bernardos</td>
+<td class="right">CJ. Bernardos</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">Universidad Carlos III de Madrid</td>
+<td class="right">UC3M</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">October 21, 2020</td>
+<td class="right">October 23, 2020</td>
 </tr>
 
     	
@@ -467,7 +467,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 24, 2021.</p>
+<p>This Internet-Draft will expire on April 26, 2021.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2020 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -542,19 +542,19 @@
 <h1 id="rfc.section.2">
 <a href="#rfc.section.2">2.</a> Introduction</h1>
 <p id="rfc.section.2.p.1">Deterministic Networking (DetNet) <a href="#RFC8655" class="xref">[RFC8655]</a> has proposed to provide a bounded end-to-end latency on top of the network infrastructure, comprising both Layer 2 bridged and Layer 3 routed segments.  Their work encompasses the data plane, OAM, time synchronization, management, control, and security aspects.  </p>
-<p id="rfc.section.2.p.2">Operations, Administration, and Maintenance (OAM) Tools are of primary importance for IP networks <a href="#RFC7276" class="xref">[RFC7276]</a>.  We need a toolset for fault detection, localization, and performance measurement.  </p>
-<p id="rfc.section.2.p.3">This document's primary purpose is to detail the specific requirements of the OAM features recommended to maintain a deterministic network.  Specifically, it investigates the requirements for a deterministic network, supporting critical flows.  </p>
-<p id="rfc.section.2.p.4">In this document, the term OAM will be used according to its definition specified in <a href="#RFC6291" class="xref">[RFC6291]</a>.  We expect to implement an OAM framework in DetNet to maintain a real-time view of the network infrastructure, and its ability to respect the Service Level Objectives (SLO), such as packet delay, delay variation, and packet loss ratio, assigned to each data flow.  </p>
+<p id="rfc.section.2.p.2">Operations, Administration, and Maintenance (OAM) Tools are of primary importance for IP networks <a href="#RFC7276" class="xref">[RFC7276]</a>.  DetNet OAM should provide a toolset for fault detection, localization, and performance measurement.  </p>
+<p id="rfc.section.2.p.3">This document's primary purpose is to detail the specific requirements of the OAM features recommended to maintain a deterministic/reliable network.  Specifically, it investigates the requirements for a deterministic network, supporting critical flows.  </p>
+<p id="rfc.section.2.p.4">In this document, the term OAM will be used according to its definition specified in <a href="#RFC6291" class="xref">[RFC6291]</a>.  DetNet expects to implement an OAM framework to maintain a real-time view of the network infrastructure, and its ability to respect the Service Level Objectives (SLO), such as packet delay, delay variation, and packet loss ratio, assigned to each data flow.  </p>
 <h1 id="rfc.section.2.1">
 <a href="#rfc.section.2.1">2.1.</a> Terminology</h1>
 <p id="rfc.section.2.1.p.1">We adopt here the following terminology: </p>
 
 <ul>
 <li>OAM entity: a data flow to be monitored for defects and/or its performance metrics measured.  </li>
-<li>Maintenance End Point (MEP): OAM systems crossed when entering/exiting the network. In DetNet, it corresponds with the source and destination of a data flow. OAM messages can be exchanged between two MEPs.  </li>
+<li>Maintenance End Point (MEP): OAM systems traversed by a data flow when entering/exiting the network. In DetNet, it corresponds with the source and destination of a data flow. OAM messages can be exchanged between two MEPs.  </li>
 <li>Maintenance Intermediate endPoint (MIP): an OAM system along the flow; a MIP MAY respond to an OAM message generated by the MEP.  </li>
 <li>Control and management plane: the control and management planes are used to configure and control the network (long-term).  Relative to a data flow, the control and/or management plane can be out-of-band.  </li>
-<li>Active measurement methods (as defined in <a href="#RFC7799" class="xref">[RFC7799]</a>) modify normal data flow by inserting novel fields, injecting specially constructed test packets <a href="#RFC2544" class="xref">[RFC2544]</a>).  It is critical for the quality of information obtained using an active method that generated test packets are in-band with the monitored data flow.  In other words, a test packet is required to cross the same network nodes and links and receive the same Quality of Service (QoS) treatment as a data packet.  </li>
+<li>Active measurement methods (as defined in <a href="#RFC7799" class="xref">[RFC7799]</a>) modify a normal data flow by inserting novel fields, injecting specially constructed test packets <a href="#RFC2544" class="xref">[RFC2544]</a>).  It is critical for the quality of information obtained using an active method that generated test packets are in-band with the monitored data flow.  In other words, a test packet is required to cross the same network nodes and links and receive the same Quality of Service (QoS) treatment as a data packet.  </li>
 <li>Passive measurement methods <a href="#RFC7799" class="xref">[RFC7799]</a> infer information by observing unmodified existing flows.</li>
 <li>Hybrid measurement methods <a href="#RFC7799" class="xref">[RFC7799]</a> is the combination of elements of both active and passive measurement methods.</li>
 </ul>
@@ -563,12 +563,12 @@
 <h1 id="rfc.section.2.2">
 <a href="#rfc.section.2.2">2.2.</a> <a href="#acronyms-sec" id="acronyms-sec">Acronyms</a>
 </h1>
-<p id="rfc.section.2.2.p.1">OAM                   Operations, Administration, and Maintenance</p>
-<p id="rfc.section.2.2.p.2">DetNet               Deterministic Networking</p>
-<p id="rfc.section.2.2.p.3">SLO                    Service Level Objective</p>
-<p id="rfc.section.2.2.p.4">QoS                   Quality of Service</p>
-<p id="rfc.section.2.2.p.5">SNMP               Simple Network Management Protocol</p>
-<p id="rfc.section.2.2.p.6">SDN                  Software Defined Network</p>
+<p id="rfc.section.2.2.p.1">OAM:                   Operations, Administration, and Maintenance</p>
+<p id="rfc.section.2.2.p.2">DetNet:               Deterministic Networking</p>
+<p id="rfc.section.2.2.p.3">SLO:                    Service Level Objective</p>
+<p id="rfc.section.2.2.p.4">QoS:                   Quality of Service</p>
+<p id="rfc.section.2.2.p.5">SNMP:               Simple Network Management Protocol</p>
+<p id="rfc.section.2.2.p.6">SDN:                  Software Defined Network</p>
 <p id="rfc.section.2.2.p.7">&lt;TODO&gt; we need here an exhaustive list, to be completed after the document has evolved.</p>
 <h1 id="rfc.section.2.3">
 <a href="#rfc.section.2.3">2.3.</a> Requirements Language</h1>
@@ -577,7 +577,8 @@
 <a href="#rfc.section.3">3.</a> Role of OAM in DetNet</h1>
 <p id="rfc.section.3.p.1">DetNet networks expect to provide communications with predictable low packet delay and packet loss.  Most critical applications will define an SLO to be required for the data flows it generates.  </p>
 <p id="rfc.section.3.p.2">To respect strict guarantees, DetNet can use an orchestrator able to monitor and maintain the network.  Typically, a Software-Defined Network (SDN) controller places DetNet flows in the deployed network based on their the SLO.  Thus, resources have to be provisioned a priori for the regular operation of the network.  OAM represents the essential elements of the network operation and necessary for OAM resources that need to be accounted for to maintain the network operational.  </p>
-<p id="rfc.section.3.p.3">Fault-tolerance also assumes that multiple paths could be provisioned so that an end-to-end circuit keeps on existing whatever the conditions.  The central controller/orchestrator typically controls the Packet Replication, Elimination, and Ordering Functions (PREOF) on a node.  OAM is expected to support monitoring and troubleshooting PREOF on a particular node and within the domain.  </p>
+<p id="rfc.section.3.p.3">Fault-tolerance also assumes that multiple paths could be provisioned so that an end-to-end circuit is maintained by adapting to the existing conditions.  The central controller/orchestrator typically controls the Packet Replication, Elimination, and Ordering Functions (PREOF) on a node.  OAM is expected to support monitoring and troubleshooting PREOF on a particular node and within the domain.  </p>
+<p id="rfc.section.3.p.4">Note that PREOF can also be controlled by a set of distributed controllers, in those scenarios where DetNet solutions involve more than one single central controller.  </p>
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> Operation</h1>
 <p id="rfc.section.4.p.1">OAM features will enable DetNet with robust operation both for forwarding and routing purposes.  </p>
@@ -590,23 +591,24 @@
 <p id="rfc.section.4.2.p.1">Continuity check is used to monitor the continuity of a path, i.e., that there exists a way to deliver the packets between two endpoints A and B.  </p>
 <h1 id="rfc.section.4.3">
 <a href="#rfc.section.4.3">4.3.</a> Connectivity Verification</h1>
-<p id="rfc.section.4.3.p.1">In addition to the Continuity Check, we have to verify the connectivity.  This verification considers additional constraints, i.e., the absence of misconnection.  </p>
-<p id="rfc.section.4.3.p.2">In particular, the resources have to be reserved by a given flow, and no packets from other flows steal the corresponding resources. Similarly, the destination does not receive packets from different flows through its interface.  </p>
-<p id="rfc.section.4.3.p.3">It is worth noting that the test and data packets must follow the same path, i.e., the connectivity verification has to be conducted in-band without impacting the data traffic.  Test packets must share fate with the monitored data traffic without introducing congestion in normal network conditions.  </p>
+<p id="rfc.section.4.3.p.1">In addition to the Continuity Check, DetNet solutions have to verify the connectivity.  This verification considers additional constraints, i.e., the absence of misconnection.  </p>
+<p id="rfc.section.4.3.p.2">In particular, resources have to be reserved for a given flow, so they are booked for use without being impacted by other flows. Similarly, the destination does not receive packets from different flows through its interface.  </p>
+<p id="rfc.section.4.3.p.3">It is worth noting that the test and data packets MUST follow the same path, i.e., the connectivity verification has to be conducted in-band without impacting the data traffic.  Test packets MUST share fate with the monitored data traffic without introducing congestion in normal network conditions.  </p>
 <h1 id="rfc.section.4.4">
 <a href="#rfc.section.4.4">4.4.</a> Route Tracing</h1>
-<p id="rfc.section.4.4.p.1">Ping and traceroute are two ubiquitous tools that help localize and characterize a failure in the network.  They help to identify a subset of the list of routers in the route.  However, to be predictable, resources are reserved per flow in DetNet.  Thus, we need to define route tracing tools able to track the route for a specific flow.  </p>
+<p id="rfc.section.4.4.p.1">Ping and traceroute are two ubiquitous tools that help localize and characterize a failure in the network.  They help to identify a subset of the list of routers in the route.  However, to be predictable, resources are reserved per flow in DetNet.  Thus, DetNet needs to define route tracing tools able to track the route for a specific flow.  </p>
 <p id="rfc.section.4.4.p.2">DetNet with IP data plane is NOT RECOMMENDED to use multiple paths or links, i.e., Equal-Cost Multipath (ECMP) <a href="#I-D.ietf-detnet-ip" class="xref">[I-D.ietf-detnet-ip]</a>.  As the result, OAM in IP ECMP environment is outside the scope of this document.  </p>
 <h1 id="rfc.section.4.5">
 <a href="#rfc.section.4.5">4.5.</a> Fault Verification/detection</h1>
-<p id="rfc.section.4.5.p.1">DetNet expects to operate fault-tolerant networks.  Thus, we need mechanisms able to detect faults before they impact the network performance.  </p>
+<p id="rfc.section.4.5.p.1">DetNet expects to operate fault-tolerant networks.  Thus, mechanisms able to detect faults before they impact the network performance are needed.  </p>
 <p id="rfc.section.4.5.p.2">The network has to detect when a fault occurred, i.e., the network has deviated from its expected behavior.  While the network must report an alarm, the cause may not be identified precisely.  For instance, the end-to-end reliability has decreased significantly, or a buffer overflow occurs.  </p>
+<p id="rfc.section.4.5.p.3">DetNet OAM mechanisms SHOULD allow to detect when a fault has occurred. They MAY, when possible, predict faults based on current network conditions. They MAY also identify and report the cause of the actual/predicted network failure.  </p>
 <h1 id="rfc.section.4.6">
 <a href="#rfc.section.4.6">4.6.</a> Fault Isolation/identification</h1>
 <p id="rfc.section.4.6.p.1">The network has isolated and identified the cause of the fault.  For instance, the replication process behaves not as expected to a specific intermediary router.  </p>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> Administration</h1>
-<p id="rfc.section.5.p.1">The network has to expose a collection of metrics to support an operator making proper decisions, including: </p>
+<p id="rfc.section.5.p.1">The network SHOULD expose a collection of metrics to support an operator making proper decisions, including: </p>
 
 <ul>
 <li>Queuing Delay: the time elapsed between a packet enqueued and its transmission to the next hop.  </li>
@@ -614,7 +616,7 @@
 </ul>
 
 <p> </p>
-<p id="rfc.section.5.p.2">These metrics should be collected: </p>
+<p id="rfc.section.5.p.2">The following metrics SHOULD be collected: </p>
 
 <ul>
 <li>per virtual circuit to measure the end-to-end performance for a given flow.  Each of the paths has to be isolated in multipath routing strategies.  </li>
@@ -625,13 +627,13 @@
 <p> </p>
 <h1 id="rfc.section.5.1">
 <a href="#rfc.section.5.1">5.1.</a> Collection of metrics</h1>
-<p id="rfc.section.5.1.p.1">We have to optimize the number of statistics / measurements to collected, frequency of collecting.  Distributed and centralized mechanisms can be used in combination. Periodic and event-triggered collection information characterizing the state of a network to be used.  </p>
+<p id="rfc.section.5.1.p.1">DetNet OAM SHOULD optimize the number of statistics / measurements to collected, frequency of collecting.  Distributed and centralized mechanisms MAY be used in combination. Periodic and event-triggered collection information characterizing the state of a network MAY be used.  </p>
 <h1 id="rfc.section.5.2">
 <a href="#rfc.section.5.2">5.2.</a> Worst-case metrics</h1>
-<p id="rfc.section.5.2.p.1">DetNet aims to enable real-time communications on top of a heterogeneous architecture.  To make correct decisions, the controller needs to know the distribution of packet losses/delays for each flow, and each hop of the paths.  In other words, the average end-to-end statistics are not enough.  The collected information must be sufficient to allow the controller to predict the worst-case.  </p>
+<p id="rfc.section.5.2.p.1">DetNet aims to enable real-time communications on top of a heterogeneous multi-hop architecture.  To make correct decisions, the controller needs to know the distribution of packet losses/delays for each flow, and each hop of the paths.  In other words, the average end-to-end statistics are not enough.  The collected information must be sufficient to allow the controller to predict the worst-case.  </p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> Maintenance</h1>
-<p id="rfc.section.6.p.1">DetNet needs to implement a self-healing and self-optimization approach.  The controller must be able to continuously retrieve the state of the network, to evaluate conditions and trends about the relevance of a reconfiguration, quantifying: </p>
+<p id="rfc.section.6.p.1">DetNet needs to implement a self-healing and self-optimization approach.  The controller MUST be able to continuously retrieve the state of the network, to evaluate conditions and trends about the relevance of a reconfiguration, quantifying: </p>
 
 <ul class="empty">
 <li>the cost of the sub-optimality: resources may not be used optimally (e.g., a better path exists).  </li>
@@ -659,7 +661,7 @@
 <p id="rfc.section.6.2.p.1">Because the QoS criteria associated with a path may degrade, the network has to provision additional resources along the path. We need to provide mechanisms to patch the network configuration.  </p>
 <h1 id="rfc.section.6.3">
 <a href="#rfc.section.6.3">6.3.</a> Soft transition after reconfiguration</h1>
-<p id="rfc.section.6.3.p.1">Since DetNet expects to support real-time flows, we have to support soft-reconfiguration, where the novel resources are reserved before the ancient ones are released.  Some mechanisms have to be proposed so that packets are forwarded through the novel track only when the resources are ready to be used, while maintaining the global state consistent (no packet reordering, duplication, etc.) </p>
+<p id="rfc.section.6.3.p.1">Since DetNet expects to support real-time flows, DetNet OAM MUST support soft-reconfiguration, where the novel resources are reserved before the ancient ones are released.  Some mechanisms have to be proposed so that packets are forwarded through the novel track only when the resources are ready to be used, while maintaining the global state consistent (no packet reordering, duplication, etc.) </p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#iana-consider" id="iana-consider">IANA Considerations</a>
 </h1>
@@ -796,17 +798,22 @@
 		<span class="family-name">Bernardos</span>
 	  </span>
 	</span>
-	<span class="org vcardline">Universidad Carlos III de Madrid</span>
+	<span class="org vcardline">Universidad Carlos III de Madrid </span>
 	<span class="adr">
-	  
+	  <span class="vcardline">Av. Universidad, 30</span>
+
 	  <span class="vcardline">
-		<span class="locality"></span> 
+		<span class="locality">Leganes, Madrid</span>,  
 		<span class="region"></span>
-		<span class="code"></span>
+		<span class="code">28911</span>
 	  </span>
-	  <span class="country-name vcardline"></span>
+	  <span class="country-name vcardline">Spain</span>
 	</span>
-	<span class="vcardline">EMail: <a href="mailto:cjbc@it.uc3m.es">cjbc@it.uc3m.es</a></span>
+	<span class="vcardline">Phone: +34 91624 6236</span>
+
+<span class="vcardline">EMail: <a href="mailto:cjbc@it.uc3m.es">cjbc@it.uc3m.es</a></span>
+
+<span class="vcardline">URI: <a href="http://www.it.uc3m.es/cjbc/">http://www.it.uc3m.es/cjbc/</a></span>
 
   </address>
 </div>
