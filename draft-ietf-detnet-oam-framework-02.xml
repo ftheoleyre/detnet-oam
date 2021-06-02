@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rfc SYSTEM "rfc2629-xhtml.ent">
+<?rfc toc="yes"?>
+<?rfc tocompact="yes"?>
+<?rfc tocdepth="3"?>
+<?rfc tocindent="yes"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes"?>
+<?rfc comments="yes"?>
+<?rfc inline="yes"?>
+<?rfc compact="no"?>
+<?rfc subcompact="no"?>
+<?rfc authorship="yes"?>
+<?rfc tocappendix="yes"?>
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="info" ipr="trust200902" docName="draft-ietf-detnet-oam-framework-02" obsoletes="" updates="" submissionType="IETF" xml:lang="en" tocInclude="true" tocDepth="3" symRefs="true" sortRefs="true" version="3">
+  <!-- xml2rfc v2v3 conversion 3.6.0 -->
+  <front>
+    <title abbrev="Framework of OAM for DetNet">Framework of Operations, Administration and Maintenance (OAM) for Deterministic Networking (DetNet)</title>
+    <seriesInfo name="Internet-Draft" value="draft-ietf-detnet-oam-framework-02"/>
+    <author initials="G." surname="Mirsky" fullname="Greg Mirsky">
+      <organization>ZTE Corp.</organization>
+      <address>
+        <email>gregimirsky@gmail.com</email>
+        <email>gregory.mirsky@ztetx.com</email>
+      </address>
+    </author>
+    <author initials="F." surname="Theoleyre" fullname="Fabrice Theoleyre">
+      <organization>CNRS</organization>
+      <address>
+        <postal>
+          <street>300 boulevard Sebastien Brant - CS 10413</street>
+          <city>Illkirch - Strasbourg</city>
+          <code>67400</code>
+          <country>FRANCE</country>
+        </postal>
+        <phone>+33 368 85 45 33</phone>
+        <email>theoleyre@unistra.fr</email>
+        <uri>http://www.theoleyre.eu</uri>
+      </address>
+    </author>
+    <author initials="G.Z." surname="Papadopoulos" fullname="Georgios Z. Papadopoulos">
+      <organization>IMT Atlantique</organization>
+      <address>
+        <postal>
+          <street>Office B00 - 102A</street>
+          <street>2 Rue de la Châtaigneraie</street>
+          <city>Cesson-Sévigné - Rennes</city>
+          <code>35510</code>
+          <country>FRANCE</country>
+        </postal>
+        <phone>+33 299 12 70 04</phone>
+        <email>georgios.papadopoulos@imt-atlantique.fr</email>
+      </address>
+    </author>
+    <author initials="CJ." surname="Bernardos" fullname="Carlos J. Bernardos">
+      <organization abbrev="UC3M">
+        Universidad Carlos III de Madrid
+      </organization>
+      <address>
+        <postal>
+          <street>Av. Universidad, 30</street>
+          <city>Leganes, Madrid</city>
+          <code>28911</code>
+          <country>Spain</country>
+        </postal>
+        <phone>+34 91624 6236</phone>
+        <email>cjbc@it.uc3m.es</email>
+        <uri>http://www.it.uc3m.es/cjbc/</uri>
+      </address>
+    </author>
+    
+    <date/>
+    
+    <workgroup>DetNet</workgroup>
+    
+    <abstract>
+      <t>
+    Deterministic Networking (DetNet), as defined in RFC 8655, is aimed to provide a bounded end-to-end latency
+        on top of the network infrastructure, comprising both Layer 2 bridged and Layer 3 routed segments.          
+This document's primary purpose is to detail the specific requirements of the Operation, Administration, and Maintenance (OAM) recommended to maintain a
+   deterministic network. With the implementation of the OAM framework in DetNet, an operator will have a real-time
+      	view of the network infrastructure regarding the network's ability to respect the Service Level
+          Objective, such as packet delay, delay variation, and packet loss ratio, assigned to each DetNet flow.
+
+      </t>
+    </abstract>
+  </front>
+  <middle>
+    <!--
+<section title="TEMPORARY EDITORIAL NOTES">
+
+   <t>
+		This document is an Internet Draft, so it is work-in-progress by nature.
+   		It contains the following work-in-progress elements:
+   </t>	
+     		 
+   <t>
+   	<list style="symbols">
+		<t>"TODO" statements are elements which have not yet been written by the authors 
+		for some reason (lack of time, ongoing discussions with no clear consensus, etc).
+		The statement does indicate that the text will be written at some time.</t>
+        
+   	</list>
+    
+   </t>
+   		 
+</section>
+-->
+
+
+<section numbered="true" toc="default">
+      <name>Introduction</name>
+      <t>
+        Deterministic Networking (DetNet) <xref target="RFC8655" format="default"/> has proposed to provide a bounded end-to-end latency
+        on top of the network infrastructure, comprising both Layer 2 bridged and Layer 3 routed segments.
+        That work encompasses the data plane, OAM, time synchronization, management, control, and security aspects.
+      </t>
+      <t>
+        Operations, Administration, and Maintenance (OAM) Tools are of primary importance
+        for IP networks <xref target="RFC7276" format="default"/>.
+        DetNet OAM should provide a toolset for fault detection, localization, and performance measurement.
+      </t>
+      <t>
+        This document's primary purpose is to detail the specific requirements of the OAM features recommended to maintain a
+   deterministic/reliable network.
+        Specifically, it investigates the requirements for a deterministic network, supporting critical flows.
+      </t>
+      <t>
+      	In this document, the term OAM will be used according to its definition specified 
+      	in <xref target="RFC6291" format="default"/>.
+      	DetNet expects to implement an OAM framework to maintain a real-time
+      	view of the network infrastructure, and its ability to respect the Service Level
+          Objectives (SLO), such as in-order packet delivery, packet delay, delay variation, and packet loss ratio, assigned to each DetNet flow.
+      </t>
+      <t>
+    This document lists the functional requirements toward OAM for DetNet domain. 
+   The list can further be used for gap analysis of available OAM tools to identify
+   possible enhancements of existing or whether new OAM tools are required to
+   support proactive and on-demand path monitoring and service validation.
+      </t>
+      <section numbered="true" toc="default">
+        <name>Terminology</name>
+        <t>
+            This document uses definitions, particularly of a DetNet flow, provided in Section 2.1 <xref target="RFC8655"/>.
+            The following terms are used throughout this document as defined below:
+        </t>
+        <ul spacing="normal">
+                  <li>
+                    DetNet OAM domain: a DetNet network.used by the monitored DetNet flow. A DetNet OAM domain
+                    (also referred to in this document as "OAM domain") has MEPs on its edge and MIPs within.
+                   </li>
+          <li>
+                    DetNet OAM instance: a function that monitors a DetNet flow for defects and/or measures its performance metrics. Whitin this document,
+                    a shorter version, OAM instance, used interchangeably.
+                   </li>
+           
+               <li>
+                   Maintenance End Point (MEP): OAM instances traversed by a data flow when entering/exiting
+                   the network. In DetNet, it corresponds with the source and destination
+                   of a DetNet flow. OAM messages can be exchanged between two MEPs.
+                   
+               </li>
+          <li>
+                   Maintenance Intermediate endPoint (MIP): an OAM instance along the flow;
+a MIP MAY respond to an OAM message generated by the MEP.
+               </li>
+          <li>
+               Control and management plane: the control and management planes are used to configure and control the network (long-term).
+               Relative to a DetNet flow, the control and/or management plane can be out-of-band.
+                   </li>
+          <li>
+               Active measurement methods (as defined in <xref target="RFC7799" format="default"/>)
+                  modify a DetNet flow by inserting novel fields, injecting specially constructed test packets <xref target="RFC2544" format="default"/>).
+                  
+                  </li>
+          <li>Passive measurement methods <xref target="RFC7799" format="default"/> infer information by observing unmodified existing flows.</li>
+          <li>Hybrid measurement methods <xref target="RFC7799" format="default"/> is the combination of elements of both active and passive measurement methods.</li>
+          
+         	</ul>
+      </section>
+      <section anchor="acronyms-sec" numbered="true" toc="default">
+        <name>Acronyms</name>
+        <t>OAM:                   Operations, Administration, and Maintenance</t>
+        <t>DetNet:               Deterministic Networking</t>
+        <t>SLO:                    Service Level Objective</t>
+
+    </section>
+      <section numbered="true" toc="default">
+        <name>Requirements Language</name>
+        <t>
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+   NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+   "MAY", and "OPTIONAL" in this document are to be interpreted as
+   described in BCP 14 <xref target="RFC2119" format="default"/> <xref target="RFC8174" format="default"/>
+   when, and only when, they appear in all capitals, as shown here.
+        </t>
+      </section>
+    </section>
+    <!-- INTEREST OF OAM          -->
+<section numbered="true" toc="default">
+      <name>Role of OAM in DetNet</name>
+      <t>
+      DetNet networks expect to provide communications with predictable low packet delay and packet loss.
+      Most critical applications will define an SLO to be required for the DetNet flows it
+      generates.
+      </t>
+
+	<t>
+      To respect strict guarantees, DetNet can use an orchestrator able to monitor and
+      maintain the network.
+      Typically, a Software-Defined Network controller places DetNet flows
+      in the deployed network based on their SLO.
+      Thus, resources have to be provisioned a priori for the regular operation of the network. 
+      Because OAM is an essential element of the network operation,
+      resources, necessary for OAM, need to be accounted for in addition to DetNet flows.
+      </t>
+      <!-- TODO-Greg-
+Strictly speaking, PREOF also includes an order preservation. Do you see it as the required element in RAW?
+-->
+<!-- GIM>> Great question! We should bring that up to the RAW WG discussion. -->
+
+	<t>
+      Fault-tolerance also assumes that multiple paths could be provisioned
+      so that an end-to-end circuit is maintained by adapting to the existing conditions.
+      The central controller/orchestrator typically controls the Packet Replication, Elimination, and Ordering Functions (PREOF) on a DetNet device.
+      OAM is expected to support monitoring and troubleshooting PREOF on a particular DetNet device and within the DetNet flow.
+      </t>
+      <!-- Carlos: I think talking about "central controller" limits the applicability. There could be frameworks with multiple/distributed controllers. I've added some text below to reflect this -->
+	<!-- GIM>> I agree with the added text that broadens applicable use cases. -->
+	<t> Note that PREOF can also be controlled by a set of distributed controllers, in those scenarios where DetNet solutions involve more than one single central controller.
+      </t>
+      <t>It is undwerstood that the existing OAM tools broadly used in networks can be used in DetNet domains.
+      At the same time, it is expected that addressiing specific DetNet use case, for example, PREOF, will require extensions to the existing OAM protocols.
+      </t>
+    </section>
+    <!--  OPERATION          -->
+<section numbered="true" toc="default">
+      <name>Operation</name>
+      <t>
+    	OAM features will enable DetNet with robust operation both for forwarding and routing
+    	purposes.
+      </t>
+
+        <t>
+			It is worth noting that the test and data packets MUST follow the same
+            path, i.e., the connectivity verification has to be conducted in-band without
+            impacting the data traffic.
+            <!-- TODO-Greg-
+            It is critical for both CC, CV and, in general, active OAM methods. I think it can be listed in the Requirements for OAM in RAW section.
+            GIM>> Yes, by all means.
+            -->
+            Test packets MUST share fate with the monitored data traffic without introducing congestion in normal network conditions.
+        </t>
+
+    <section numbered="true" toc="default">
+        <name>Information Collection</name>
+        <t>
+               Information about the state of the network can be collected using several mechanisms. Some protocols,
+              e.g., Simple Network Management Protocol, send queries. 
+              Others, e.g., YANG-based data models, generate notifications based on the publish-subscribe method.
+              In either way, information is collected and sent to the controller.
+        </t>
+        <t>
+               Also, we can characterize methods of transporting OAM information relative to the path of data.
+               For instance, OAM information may be transported in-band or out-of-band relative to the DetNet flow.
+               In case of the former, the telemetry information uses resources allocated for the monitored DetNet flow.
+               If an in-band method of transporting telemetry is used, the amount of generated information needs
+               to be carefully analyzed, and additional resources must be reserved. <xref target="I-D.ietf-ippm-ioam-data"/> defines the in-band
+               transport mechanism where telemetry information is collected in the data packet on which information is generated.
+               Two tracing methods are described - end-to-end, i.e., from the ingress and egress nodes,
+               and hop-by-hop, i.e., like end-to-end with additional information from transit nodes.
+               <xref target="I-D.ietf-ippm-ioam-direct-export"/> and <xref target="I-D.mirsky-ippm-hybrid-two-step"/> are examples of out-of-band
+               telemetry transport. In the former case, information is transported by each node traversed
+               by the data packet of the monitored DetNet flow in a specially constructed packet. In the latter,
+               information is collected in a sequence of follow-up packets that traverse the same path as the data packet of the monitored DetNet flow.
+               In both methods, transport of the telemetry can avoid using resources allocated for the DetNet domain.
+               
+
+        </t>
+      </section>
+      <section numbered="true" toc="default">
+        <name>Continuity Check</name>
+        <t>
+			Continuity check is used to monitor the continuity of a path, i.e.,
+            that there exists a way to deliver the packets between
+            two MEP A and MEP B. The continuity check detects a network failure in one direction, from the MEP transmitting test packets to the remote egress MEP.
+        </t>
+      </section>
+      <section numbered="true" toc="default">
+        <name>Connectivity Verification</name>
+        <t>
+            In addition to the Continuity Check, DetNet solutions have to verify the connectivity.
+            This verification considers additional constraints, i.e., the absence of
+            misconnection. The misconnection error state is entered after several consecutive test packets
+            from other DetNet flows are received. The definition of the conditions of entry and exit for misconnection
+            error state is outside the scope of this document.
+        </t>
+        <!-- Carlos: I tried to rewrite a bit the sentence below, but I still don't get the part
+                     that starts with "Similarly, ". -->
+        <!-- Fabrice: I don't understand neither this last sentence. Does it correspond to something thas has been moved, and the other sentences are somewhere else?-->
+        <!-- GIM>> Agree, 'similarly' doesn't make sense.
+        The whole paragraph too close to the discussion of explicit and shared resources.
+        We might comment out the paragraph for now and come back to it later. -->
+
+      </section>
+      <section numbered="true" toc="default">
+        <name>Route Tracing</name>
+        <t>
+            <!-- TODO-Greg-
+            Do we want to point to ICMP Ping specifically? Principles used in ICMP Ping/traceroute have been used in other networks, for example, MPLS LSP ping.
+            GIM>> There is also UDP Ping. We can add references to ICMP and ICMPv6 RFCs later. Or now. As you prefer.
+            -->
+       		Ping and traceroute are two ubiquitous tools that help localize and characterize a failure in the network. 
+       		<!-- GP: we may check with Pascal, if he agrees, we may introduce the concepts of Bitmap-->
+       		They help to identify a subset of the list of routers in the route.
+       		However, to be predictable, resources are reserved per flow in DetNet.
+       		Thus, DetNet needs to define route tracing tools able to track the route for a 
+       		specific flow. Also, tracing can be used for the discovery of the Path Maximum Transmission Unit or location of elements of PREOF
+       		for the particular route in the DetNet domain.
+        </t>
+        <t>
+			DetNet is NOT RECOMMENDED to use multiple paths or links, i.e., Equal-Cost Multipath (ECMP) <xref target="RFC8939" format="default"/>.
+			As the result, OAM in ECMP environment is outside the scope of this document.
+        </t>
+      </section>
+      <section numbered="true" toc="default">
+        <name>Fault Verification/detection</name>
+        <t>
+      		DetNet expects to operate fault-tolerant networks.
+      		Thus, mechanisms able to detect faults before they impact the network 
+      		performance are needed.
+        </t>
+        <t>
+     		The network has to detect when a fault occurred, i.e., the network has deviated
+             from its expected behavior.
+     		While the network must report an alarm, the cause may not be identified 
+     		precisely. 
+     		For instance, the end-to-end reliability has decreased significantly, or a 
+     		buffer overflow occurs.
+        </t>
+        <!-- Carlos: I miss here what OAM needs to do exactly here, what we expect.
+		             I've added some text -->
+		             <!-- GIM>> I think that failure detecton is stronger than SHOULD requirement. I propose s/SHOULD/MUST/.
+		             The rest is, in my opinion, is very interesting topic but is more related to network analytics and probably is outside the scope of this document. -->
+		<t>DetNet OAM mechanisms SHOULD allow a fault detection in real time. They MAY,
+		when possible, predict faults based on current network conditions. They MAY also
+		identify and report the cause of the actual/predicted network failure.
+        </t>
+      </section>
+      <section numbered="true" toc="default">
+        <name>Fault Localization and Characterization</name>
+        <t>
+        	An ability to localize the network defect and provide its characterization are necessary elements of network operation.
+        	</t>
+        	        <ul empty="true" spacing="normal">
+          <li>Fault localization, a process of deducing the location of a network failure from a set of observed failure indications,
+        	might be achieved, for example, by tracing the route of the DetNet flow in which the network failure was detected.
+        	Another method of fault localization can correlate reports of failures from a set of interleaving sessions monitoring path continuity.</li>
+        	<li>
+          Fault characterization is a process of identifying the root cause of the problem. For instance, misconfiguration or malfunction of PREOF elements
+          can be the cause of erroneous packet
+        	replication or extra packets being flooded in the DetNet domain.
+        	</li>
+        </ul>
+
+      </section>
+      <section anchor="hybrid-oam" numbered="true" toc="default">
+        <name>Use of Hybrid OAM in DetNet</name>
+        <t>Hybrid OAM methods are used in performance monitoring and defined in <xref target="RFC7799" format="default"/> as:
+</t>
+        <ul empty="true" spacing="normal">
+          <li>Hybrid Methods are Methods of Measurement that use a combination of
+   Active Methods and Passive Methods.</li>
+        </ul>
+        <t>
+   A hybrid measurement method may produce metrics as close to passive,
+   but it still alters something in a data packet even if that is the value of a 
+   designated field in the packet encapsulation. One example of such a hybrid measurement method
+   is the Alternate Marking method (AMM) described in <xref target="RFC8321" format="default"/>.
+   As with all on-path telemetry methods, AMM in a DetNet domain with the IP data plane is natively in-band
+   in respect to the monitored DetNet flow. Because the marking is applied to a data flow,
+  measured metrics are directly applicable to the DetNet flow. AMM minimizes the additional load on
+  the DetNet domain by using nodal collection and computation of performance metrics in combination with
+  optionally using out-of-band telemetry collection for further network analysis.
+        </t>
+      </section>
+    </section>
+    <!--    ADMINISTRATION          -->
+<section numbered="true" toc="default">
+      <name>Administration</name>
+      <t>
+      The network SHOULD expose a collection of metrics to support an operator making proper decisions, including:
+      
+      </t>
+      <ul spacing="normal">
+        <li>
+            Queuing Delay: the time elapsed between a packet enqueued and its transmission to the next hop.
+            </li>
+        <li>
+            Buffer occupancy: the number of packets present in the buffer, for each of the existing flows.
+            </li>
+      </ul>
+      <t>
+      The following metrics SHOULD be collected:
+      </t>
+      <ul spacing="normal">
+        <li>
+            per a DetNet flow to measure the end-to-end performance for a given flow.
+            Each of the paths has to be isolated in multipath routing strategies.
+            </li>
+        <li>
+            per path to detect misbehaving path when multiple paths are applied.
+            </li>
+        <li>
+            per device to detect misbehaving device, when it relays the packets of
+            several flows.
+            </li>
+      </ul>
+      <section numbered="true" toc="default">
+        <name>Collection of metrics</name>
+        <t>
+             DetNet OAM SHOULD optimize the number of statistics / measurements to collected, frequency of collecting.
+             Distributed and centralized mechanisms MAY be used in combination. Periodic and
+             event-triggered collection information characterizing the state of a network MAY be used.
+        </t>
+      </section>
+      <section numbered="true" toc="default">
+        <name>Worst-case metrics</name>
+        <t>
+         DetNet aims to enable real-time communications on top of a heterogeneous multi-hop architecture.
+         To make correct decisions, the controller needs to know the distribution
+         of packet losses/delays for each flow, and each hop of the paths.
+         In other words, the average end-to-end statistics are not enough.
+         The collected information must be sufficient to allow the controller to predict the worst-case.
+        </t>
+      </section>
+    </section>
+    <!--   MAINTENANCE          -->
+
+<!-- speak about predictive maintenance? -->
+
+   <section numbered="true" toc="default">
+      <name>Maintenance</name>
+      <t>
+         In the face of events that impact the network operation (e.g., link up/down,
+         device crash/reboot, flows starting and ending), the DetNet Controller need to perform
+         repair and re-optimization actions in order to permanently ensure
+         the SLO of all active flows with minimal waste of resources
+         The controller MUST be able to continuously retrieve the state of the network,
+         to evaluate conditions and trends about the relevance of a reconfiguration, quantifying:
+      </t>
+      <ul empty="true" spacing="normal">
+        <li> the cost of the sub-optimality: resources may not be used
+               optimally (e.g., a better path exists).
+            </li>
+        <li>
+               the reconfiguration cost: the controller needs to trigger some
+               reconfigurations.
+               For this transient period, resources may be twice reserved, and control packets have to be transmitted.
+            </li>
+      </ul>
+      <t>
+         Thus, reconfiguration may only be triggered if the gain is significant.
+      </t>
+
+      <section numbered="true" toc="default">
+        <name>Replication / Elimination</name>
+        <t>
+          
+When multiple paths are reserved between two MEPs,
+  packet replication may be used to introduce redundancy and alleviate transmission errors and collisions.
+              For instance, in <xref target="fig_replication" format="default"/>, the source device S is 
+              transmitting the packet to both parents, devices A and B.              
+              Each MEP will decide to trigger the packet replication, 
+              elimination or the ordering process when a set of metrics passes a threshold value.
+        </t>
+        <figure anchor="fig_replication">
+          <name>Packet Replication: S transmits twice the same data packet, to DP(A) and AP (B).</name>
+          <artwork align="center" name="" type="" alt=""><![CDATA[
+ 
+               ===> (A) => (C) => (E) === 
+             //        \\//   \\//       \\
+   source (S)          //\\   //\\         (R) (root)
+             \\       //  \\ //  \\      //
+               ===> (B) => (D) => (F) ===
+            ]]></artwork>
+        </figure>
+      </section>
+      <section numbered="true" toc="default">
+        <name>Resource Reservation</name>
+        <t>
+          
+            Because the quality of service criteria associated with a path may degrade, the network has
+            to provision additional resources along the path. We need to provide
+            mechanisms to patch the network configuration.
+        </t>
+      </section>
+      <section numbered="true" toc="default">
+        <name>Soft transition after reconfiguration</name>
+        <t>
+              Since DetNet expects to support real-time flows, DetNet OAM MUST support soft-reconfiguration,
+              where the the additional resources are reserved before the those previously reserved but not in use are released.
+              Some mechanisms have to be proposed so that packets are forwarded through the
+              novel track only when the resources are ready to be used, while maintaining
+              the global state consistent (no packet reordering, duplication, etc.)
+        </t>
+      </section>
+    </section>
+    <section anchor="req-list" numbered="true" toc="default">
+      <name>Requirements</name>
+      <t>
+  This section lists requirements for OAM in DetNet domain:
+      </t>
+      <ol spacing="normal" type="1">
+      <li>
+  It MUST be possible to initiate DetNet OAM session from any 
+  DetNet node towards another DetNet node(s) within given domain.
+  [Ed.note: This is contradictory to the location of MEP in the given DetNet flow.
+  Since MEPs are at the ingress and egress, only these can be OAM instances that terminate a DetNet OAM session.
+  That can be addressed by s/node/MEP/.
+  Further, an OAM session is tied with the particular DetNet flow as ony in that flow resources reserved for the OAM session.
+  The latter can be accomodated by s/given domain/particular DetNet flow/.
+  As a result of these updates the requirement reads as follows:
+ It MUST be possible to initiate DetNet OAM session from any 
+  MEP towards another MEP(s) within particular DetNet flow. Comments?]
+  </li>
+        <li>
+  It MUST be possible to initialize DetNet OAM session from a centralized controller.
+  </li>
+        <li>
+  DetNet OAM MUST support proactive and on-demand OAM monitoring and measurement methods.
+  </li>
+        <li>
+  DetNet OAM packets MUST be in-band, i.e., follow precisely the same 
+  path as DetNet data plane traffic. 
+  </li>
+        <li>
+  DetNet OAM MUST support unidirectional OAM methods, continuity check, 
+  connectivity verification, and performance measurement.
+  </li>
+        <li>
+  DetNet OAM MUST support bi-directional OAM methods. Such OAM methods MAY combine in-band monitoring or
+  measurement in the forward direction and out-of-bound notification in the reverse direction, i.e., from egress to ingress
+  end point of the OAM test session.
+  </li>
+        <li>
+DetNet OAM MUST support proactive monitoring of a DetNet device reachability for a given DetNet flow.
+</li>
+        <li>
+DetNet OAM MUST support Path Maximum Transmission Unit discovery.
+</li>
+        <li>
+DetNet OAM MUST support the discovery of PREOF along a route in the given DetNet domain.
+</li>
+        <li>
+DetNet OAM MUST support Remote Defect Indication (RDI) notification to the DetNet OAM instance
+ performing continuity checking.
+</li>
+        <li>
+  DetNet OAM MUST support performance measurement methods.
+  </li>
+        <li>
+  DetNet OAM MAY support hybrid performance measurement methods.
+  </li>
+        <li>
+DetNet OAM MUST support unidirectional performance measurement methods. Calculated 
+performance metrics MUST include but are not limited to throughput, packet loss, delay 
+and delay variation metrics. <xref target="RFC6374" format="default"/> provides detailed information on performance
+measurement and performance metrics.
+</li>
+        <li>
+DetNet OAM MUST support defect notification mechanism, like Alarm Indication Signal. Any DetNet device within the given DetNet flow
+MAY originate a defect notification addressed to any subset of DetNet devices within that flow.
+</li>
+        <li>
+DetNet OAM MUST support methods to enable survivability of the DetNet domain. These recovery methods MAY use
+protection switching and restoration.
+</li>
+        <li>
+  DetNet OAM MUST support the discovery of Packet Replication, Elimination, and Order preservation sub-functions locations in the domain.
+  </li>
+        <li>
+  DetNet OAM MUST support testing of Packet Replication, Elimination, and Order preservation sub-functions in the domain.
+  </li>
+          <li>
+  DetNet OAM MUST support monitoring levels of resources allocated for the particular DetNet flow.
+  Such resources include but not limited to buffer utilization, scheduler transmission calendar.
+  </li>
+        <li>
+  DetNet OAM MUST support monitoring any sub-set of paths traversed through the DetNet domain by the DetNet flow.
+  </li>
+      </ol>
+    </section>
+    <section anchor="iana-consider" numbered="true" toc="default">
+      <name>IANA Considerations</name>
+      <t>This document has no actionable requirements for IANA. This section can be removed before the publication.</t>
+    </section>
+    <section anchor="security" numbered="true" toc="default">
+      <name>Security Considerations</name>
+      <t>
+   This document lists the OAM requirements for a DetNet domain
+   and does not raise any security concerns or issues in addition to ones common to networking and
+   those specific to a DetNet discussed in <xref target="I-D.ietf-detnet-security" format="default"/>.
+      </t>
+    </section>
+    <section numbered="true" toc="default">
+      <name>Acknowledgments</name>
+      <t>
+        The authors express their appreciation and gratitude to Pascal Thubert for the review, insightful questions, and helpful comments.
+      </t>
+    </section>
+  </middle>
+  <back>
+    <references>
+      <name>References</name>
+      <references>
+        <name>Normative References</name>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
+        <!-- Key words for use in RFCs to Indicate Requirement Levels  -->
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
+        <!-- Ambiguity of Uppercase vs Lowercase -->
+                <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8655.xml"/>
+        <!-- Deterministic Networking Architecture -->
+    </references>
+      <references>
+        <name>Informative References</name>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6291.xml"/>
+        <!-- OAM definition -->
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7276.xml"/>
+        <!-- An Overview of Operations, Administration, and Maintenance (OAM) Tools -->
+        
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7799.xml"/>
+        <!-- passive / active methods   -->
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2544.xml"/>
+        <!-- test packets   -->        
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8939.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6374.xml"/>
+        <xi:include href="https://datatracker.ietf.org/doc/bibxml3/draft-ietf-detnet-security.xml"/>
+        
+         <xi:include href="https://datatracker.ietf.org/doc/bibxml3/draft-ietf-ippm-ioam-data.xml"/>
+          <xi:include href="https://datatracker.ietf.org/doc/bibxml3/draft-ietf-ippm-ioam-direct-export.xml"/>
+           <xi:include href="https://datatracker.ietf.org/doc/bibxml3/draft-mirsky-ippm-hybrid-two-step.xml"/>
+           
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8321.xml"/>
+      </references>
+    </references>
+
+</back>
+</rfc>
