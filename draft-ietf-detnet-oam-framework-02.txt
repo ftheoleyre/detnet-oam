@@ -5,12 +5,12 @@
 DetNet                                                         G. Mirsky
 Internet-Draft                                                 ZTE Corp.
 Intended status: Informational                              F. Theoleyre
-Expires: 11 December 2021                                           CNRS
+Expires: 19 December 2021                                           CNRS
                                                        G.Z. Papadopoulos
                                                           IMT Atlantique
                                                            CJ. Bernardos
                                                                     UC3M
-                                                             9 June 2021
+                                                            17 June 2021
 
 
    Framework of Operations, Administration and Maintenance (OAM) for
@@ -46,14 +46,14 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 December 2021.
+   This Internet-Draft will expire on 19 December 2021.
 
 
 
 
 
 
-Mirsky, et al.          Expires 11 December 2021                [Page 1]
+Mirsky, et al.          Expires 19 December 2021                [Page 1]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
@@ -79,29 +79,29 @@ Table of Contents
      1.2.  Acronyms  . . . . . . . . . . . . . . . . . . . . . . . .   4
      1.3.  Requirements Language . . . . . . . . . . . . . . . . . .   4
    2.  Role of OAM in DetNet . . . . . . . . . . . . . . . . . . . .   4
-   3.  Operation . . . . . . . . . . . . . . . . . . . . . . . . . .   5
-     3.1.  Information Collection  . . . . . . . . . . . . . . . . .   5
-     3.2.  Continuity Check  . . . . . . . . . . . . . . . . . . . .   6
-     3.3.  Connectivity Verification . . . . . . . . . . . . . . . .   6
-     3.4.  Route Tracing . . . . . . . . . . . . . . . . . . . . . .   6
+   3.  Operation . . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     3.1.  Information Collection  . . . . . . . . . . . . . . . . .   6
+     3.2.  Continuity Check  . . . . . . . . . . . . . . . . . . . .   7
+     3.3.  Connectivity Verification . . . . . . . . . . . . . . . .   7
+     3.4.  Route Tracing . . . . . . . . . . . . . . . . . . . . . .   7
      3.5.  Fault Verification/detection  . . . . . . . . . . . . . .   7
-     3.6.  Fault Localization and Characterization . . . . . . . . .   7
-     3.7.  Use of Hybrid OAM in DetNet . . . . . . . . . . . . . . .   7
-   4.  Administration  . . . . . . . . . . . . . . . . . . . . . . .   8
-     4.1.  Collection of metrics . . . . . . . . . . . . . . . . . .   8
-     4.2.  Worst-case metrics  . . . . . . . . . . . . . . . . . . .   8
-   5.  Maintenance . . . . . . . . . . . . . . . . . . . . . . . . .   9
-     5.1.  Replication / Elimination . . . . . . . . . . . . . . . .   9
-     5.2.  Resource Reservation  . . . . . . . . . . . . . . . . . .   9
-     5.3.  Soft transition after reconfiguration . . . . . . . . . .  10
-   6.  Requirements  . . . . . . . . . . . . . . . . . . . . . . . .  10
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  12
-   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  12
-   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  12
-   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  12
-     10.1.  Normative References . . . . . . . . . . . . . . . . . .  12
-     10.2.  Informative References . . . . . . . . . . . . . . . . .  13
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  14
+     3.6.  Fault Localization and Characterization . . . . . . . . .   8
+     3.7.  Use of Hybrid OAM in DetNet . . . . . . . . . . . . . . .   8
+   4.  Administration  . . . . . . . . . . . . . . . . . . . . . . .   9
+     4.1.  Collection of metrics . . . . . . . . . . . . . . . . . .   9
+     4.2.  Worst-case metrics  . . . . . . . . . . . . . . . . . . .   9
+   5.  Maintenance . . . . . . . . . . . . . . . . . . . . . . . . .  10
+     5.1.  Replication / Elimination . . . . . . . . . . . . . . . .  10
+     5.2.  Resource Reservation  . . . . . . . . . . . . . . . . . .  10
+     5.3.  Soft transition after reconfiguration . . . . . . . . . .  11
+   6.  Requirements  . . . . . . . . . . . . . . . . . . . . . . . .  11
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  13
+   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  13
+   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  13
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  13
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .  13
+     10.2.  Informative References . . . . . . . . . . . . . . . . .  14
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  15
 
 
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Mirsky, et al.          Expires 11 December 2021                [Page 2]
+Mirsky, et al.          Expires 19 December 2021                [Page 2]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
@@ -151,7 +151,7 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
    provided in Section 2.1 [RFC8655].  The following terms are used
    throughout this document as defined below:
 
-   *  DetNet OAM domain: a DetNet network.used by the monitored DetNet
+   *  DetNet OAM domain: a DetNet network used by the monitored DetNet
       flow.  A DetNet OAM domain (also referred to in this document as
       "OAM domain") has MEPs on its edge and MIPs within.
 
@@ -165,7 +165,7 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
 
-Mirsky, et al.          Expires 11 December 2021                [Page 3]
+Mirsky, et al.          Expires 19 December 2021                [Page 3]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
@@ -217,36 +217,82 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
 
    To respect strict guarantees, DetNet can use an orchestrator able to
    monitor and maintain the network.  Typically, a Software-Defined
-   Network controller places DetNet flows in the deployed network based
+   Network (SDN) controller places DetNet flows in the deployed network
 
 
 
-Mirsky, et al.          Expires 11 December 2021                [Page 4]
+Mirsky, et al.          Expires 19 December 2021                [Page 4]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
-   on their SLO.  Thus, resources have to be provisioned a priori for
-   the regular operation of the network.  Because OAM is an essential
-   element of the network operation, resources, necessary for OAM, need
-   to be accounted for in addition to DetNet flows.
+   based on their SLO.  Thus, resources have to be provisioned a priori
+   for the regular operation of the network.  OAM represents the
+   essential elements of the network operation and necessary for OAM
+   resources that need to be accounted for to maintain the network
+   operational.
 
-   Fault-tolerance also assumes that multiple paths could be provisioned
-   so that an end-to-end circuit is maintained by adapting to the
-   existing conditions.  The central controller/orchestrator typically
-   controls the Packet Replication, Elimination, and Ordering Functions
-   (PREOF) on a DetNet device.  OAM is expected to support monitoring
-   and troubleshooting PREOF on a particular DetNet device and within
-   the DetNet flow.
+   Many legacy OAM tools can be used in DetNet networks, but they are
+   not able to cover all the aspects of deterministic networking.
+   Fulfilling strict guarantees is essential for DetNet flows, resulting
+   in new DetNet specific functionalities that must be covered with OAM.
+   Filling these gaps is inevitable and needs accurate consideration of
+   DetNet specifics.  Similar to DetNet flows itself, their OAM needs
+   careful end-to-end engineering as well.
 
-   Note that PREOF can also be controlled by a set of distributed
-   controllers, in those scenarios where DetNet solutions involve more
-   than one single central controller.
+   For example, appropriate placing of MEPs along the path of a DetNet
+   flow is not always a trivial task and may require proper design
+   together with the design of the service component of a given DetNet
+   flow.
 
-   It is undwerstood that the existing OAM tools broadly used in
-   networks can be used in DetNet domains.  At the same time, it is
-   expected that addressiing specific DetNet use case, for example,
-   PREOF, will require extensions to the existing OAM protocols.
+   There are several DetNet specific challenges for OAM.  Bounded
+   network characteristics (e.g., delay, loss) are inseparable service
+   parameters; therefore, PM is a key topic for DetNet.  OAM tools are
+   needed to prove the SLO without impacting the DetNet flow
+   characteristics.  A further challenge is the strict resource
+   allocation.  Resources used by OAM must be considered and allocated
+   to avoid disturbing DetNet flow(s).
+
+   The DetNet Working Group has defined two sub-layers: (1) DetNet
+   service sub-layer, at which a DetNet service (e.g., service
+   protection) is provided and (2) DetNet forwarding sub-layer, which
+   optionally provides resource allocation for DetNet flows over paths
+   provided by the underlying network.  OAM mechanisms exist for the
+   DetNet forwarding sub-layer, nonetheless, OAM for the service sub-
+   layer requires new OAM procedures.  These new OAM functions must
+   allow, for example, to recognize/discover DetNet relay nodes, to get
+   information about their configuration, and to check their operation
+   or status.
+
+   DetNet service sub-layer functions using a sequence number.  That
+   creates a challenge for inserting OAM packets in the DetNet flow.
+
+   Fault tolerance also assumes that multiple paths could be provisioned
+   to maintain an end-to-end circuit by adapting to the existing
+   conditions.  The central controller/orchestrator typically controls
+   the Packet Replication, Elimination, and Ordering Functions (PREOF)
+   on a node.  OAM is expected to support monitoring and troubleshooting
+   PREOF on a particular node and within the domain.
+
+
+
+
+Mirsky, et al.          Expires 19 December 2021                [Page 5]
+
+Internet-Draft         Framework of OAM for DetNet             June 2021
+
+
+   Note that distributed controllers can also control PREOF in those
+   scenarios where DetNet solutions involve more than one single central
+   controller.
+
+   DetNet forwarding sub-layer is based on legacy technologies and has a
+   much better coverage regarding OAM.  However, the forwarding sub-
+   layer is terminated at DetNet relay nodes, so the end-to-end OAM
+   state of forwarding may be created only based on the status of
+   multiple forwarding sub-layer segments serving a given DetNet flow
+   (e.g., in case of DetNet MPLS, there may be no end-to-end LSP below
+   the DetNet PW).
 
 3.  Operation
 
@@ -274,14 +320,6 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
    allocated for the monitored DetNet flow.  If an in-band method of
    transporting telemetry is used, the amount of generated information
    needs to be carefully analyzed, and additional resources must be
-
-
-
-Mirsky, et al.          Expires 11 December 2021                [Page 5]
-
-Internet-Draft         Framework of OAM for DetNet             June 2021
-
-
    reserved.  [I-D.ietf-ippm-ioam-data] defines the in-band transport
    mechanism where telemetry information is collected in the data packet
    on which information is generated.  Two tracing methods are described
@@ -292,6 +330,14 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
    telemetry transport.  In the former case, information is transported
    by each node traversed by the data packet of the monitored DetNet
    flow in a specially constructed packet.  In the latter, information
+
+
+
+Mirsky, et al.          Expires 19 December 2021                [Page 6]
+
+Internet-Draft         Framework of OAM for DetNet             June 2021
+
+
    is collected in a sequence of follow-up packets that traverse the
    same path as the data packet of the monitored DetNet flow.  In both
    methods, transport of the telemetry can avoid using resources
@@ -330,19 +376,23 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
    Equal-Cost Multipath (ECMP) [RFC8939].  As the result, OAM in ECMP
    environment is outside the scope of this document.
 
-
-
-
-Mirsky, et al.          Expires 11 December 2021                [Page 6]
-
-Internet-Draft         Framework of OAM for DetNet             June 2021
-
-
 3.5.  Fault Verification/detection
 
    DetNet expects to operate fault-tolerant networks.  Thus, mechanisms
    able to detect faults before they impact the network performance are
    needed.
+
+
+
+
+
+
+
+
+Mirsky, et al.          Expires 19 December 2021                [Page 7]
+
+Internet-Draft         Framework of OAM for DetNet             June 2021
+
 
    The network has to detect when a fault occurred, i.e., the network
    has deviated from its expected behavior.  While the network must
@@ -386,20 +436,19 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
    of such a hybrid measurement method is the Alternate Marking method
    (AMM) described in [RFC8321].  As with all on-path telemetry methods,
    AMM in a DetNet domain with the IP data plane is natively in-band in
-
-
-
-Mirsky, et al.          Expires 11 December 2021                [Page 7]
-
-Internet-Draft         Framework of OAM for DetNet             June 2021
-
-
    respect to the monitored DetNet flow.  Because the marking is applied
    to a data flow, measured metrics are directly applicable to the
    DetNet flow.  AMM minimizes the additional load on the DetNet domain
    by using nodal collection and computation of performance metrics in
    combination with optionally using out-of-band telemetry collection
    for further network analysis.
+
+
+
+Mirsky, et al.          Expires 19 December 2021                [Page 8]
+
+Internet-Draft         Framework of OAM for DetNet             June 2021
+
 
 4.  Administration
 
@@ -445,7 +494,14 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
 
-Mirsky, et al.          Expires 11 December 2021                [Page 8]
+
+
+
+
+
+
+
+Mirsky, et al.          Expires 19 December 2021                [Page 9]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
@@ -501,7 +557,7 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
 
-Mirsky, et al.          Expires 11 December 2021                [Page 9]
+Mirsky, et al.          Expires 19 December 2021               [Page 10]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
@@ -557,7 +613,7 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
 
-Mirsky, et al.          Expires 11 December 2021               [Page 10]
+Mirsky, et al.          Expires 19 December 2021               [Page 11]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
@@ -591,21 +647,19 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
         notification to the DetNet OAM instance performing continuity
         checking.
 
-   14.  DetNet OAM MUST support performance measurement methods.
+   14.  DetNet OAM MAY support hybrid performance measurement methods.
 
-   15.  DetNet OAM MAY support hybrid performance measurement methods.
-
-   16.  DetNet OAM MUST support unidirectional performance measurement
+   15.  DetNet OAM MUST support unidirectional performance measurement
         methods.  Calculated performance metrics MUST include but are
         not limited to throughput, packet loss, out of order, delay and
         delay variation metrics.  [RFC6374] provides detailed
         information on performance measurement and performance metrics.
 
-   17.  DetNet OAM MUST be able to measure metrics (e.g. delay) inside a
+   16.  DetNet OAM MUST be able to measure metrics (e.g. delay) inside a
         collection of OAM sessions, specially for complex DetNet flows,
         with PREOF features.
 
-   18.  DetNet OAM MUST support defect notification mechanism, like
+   17.  DetNet OAM MUST support defect notification mechanism, like
         Alarm Indication Signal.  Any DetNet device within the given
         DetNet flow MAY originate a defect notification addressed to any
         subset of DetNet devices within that flow.
@@ -613,27 +667,29 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
 
-Mirsky, et al.          Expires 11 December 2021               [Page 11]
+
+
+Mirsky, et al.          Expires 19 December 2021               [Page 12]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
-   19.  DetNet OAM MUST support methods to enable availability of the
+   18.  DetNet OAM MUST support methods to enable availability of the
         DetNet domain.  These recovery methods MAY use protection
         switching and restoration.
 
-   20.  DetNet OAM MUST support the discovery of Packet Replication,
+   19.  DetNet OAM MUST support the discovery of Packet Replication,
         Elimination, and Order preservation sub-functions locations in
         the domain.
 
-   21.  DetNet OAM MUST support testing of Packet Replication,
+   20.  DetNet OAM MUST support testing of Packet Replication,
         Elimination, and Order preservation sub-functions in the domain.
 
-   22.  DetNet OAM MUST support monitoring levels of resources allocated
+   21.  DetNet OAM MUST support monitoring levels of resources allocated
         for the particular DetNet flow.  Such resources include but not
         limited to buffer utilization, scheduler transmission calendar.
 
-   23.  DetNet OAM MUST support monitoring any sub-set of paths
+   22.  DetNet OAM MUST support monitoring any sub-set of paths
         traversed through the DetNet domain by the DetNet flow.
 
 7.  IANA Considerations
@@ -669,7 +725,7 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
 
-Mirsky, et al.          Expires 11 December 2021               [Page 12]
+Mirsky, et al.          Expires 19 December 2021               [Page 13]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
@@ -725,7 +781,7 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
 
-Mirsky, et al.          Expires 11 December 2021               [Page 13]
+Mirsky, et al.          Expires 19 December 2021               [Page 14]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
@@ -781,7 +837,7 @@ Authors' Addresses
 
 
 
-Mirsky, et al.          Expires 11 December 2021               [Page 14]
+Mirsky, et al.          Expires 19 December 2021               [Page 15]
 
 Internet-Draft         Framework of OAM for DetNet             June 2021
 
@@ -837,4 +893,4 @@ Internet-Draft         Framework of OAM for DetNet             June 2021
 
 
 
-Mirsky, et al.          Expires 11 December 2021               [Page 15]
+Mirsky, et al.          Expires 19 December 2021               [Page 16]
