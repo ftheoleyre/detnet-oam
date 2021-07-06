@@ -5,12 +5,12 @@
 DetNet                                                         G. Mirsky
 Internet-Draft                                                 ZTE Corp.
 Intended status: Informational                              F. Theoleyre
-Expires: 2 January 2022                                             CNRS
+Expires: 7 January 2022                                             CNRS
                                                        G.Z. Papadopoulos
                                                           IMT Atlantique
                                                            CJ. Bernardos
                                                                     UC3M
-                                                             1 July 2021
+                                                             6 July 2021
 
 
    Framework of Operations, Administration and Maintenance (OAM) for
@@ -46,14 +46,14 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 January 2022.
+   This Internet-Draft will expire on 7 January 2022.
 
 
 
 
 
 
-Mirsky, et al.           Expires 2 January 2022                 [Page 1]
+Mirsky, et al.           Expires 7 January 2022                 [Page 1]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Mirsky, et al.           Expires 2 January 2022                 [Page 2]
+Mirsky, et al.           Expires 7 January 2022                 [Page 2]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -165,7 +165,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                 [Page 3]
+Mirsky, et al.           Expires 7 January 2022                 [Page 3]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -221,7 +221,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                 [Page 4]
+Mirsky, et al.           Expires 7 January 2022                 [Page 4]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -277,7 +277,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                 [Page 5]
+Mirsky, et al.           Expires 7 January 2022                 [Page 5]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -333,7 +333,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                 [Page 6]
+Mirsky, et al.           Expires 7 January 2022                 [Page 6]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -389,7 +389,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                 [Page 7]
+Mirsky, et al.           Expires 7 January 2022                 [Page 7]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -445,7 +445,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                 [Page 8]
+Mirsky, et al.           Expires 7 January 2022                 [Page 8]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -501,7 +501,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                 [Page 9]
+Mirsky, et al.           Expires 7 January 2022                 [Page 9]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -557,7 +557,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                [Page 10]
+Mirsky, et al.           Expires 7 January 2022                [Page 10]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -613,7 +613,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                [Page 11]
+Mirsky, et al.           Expires 7 January 2022                [Page 11]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -669,7 +669,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                [Page 12]
+Mirsky, et al.           Expires 7 January 2022                [Page 12]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -714,8 +714,8 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
               Brockners, F., Bhandari, S., and T. Mizrahi, "Data Fields
               for In-situ OAM", Work in Progress, Internet-Draft, draft-
               ietf-ippm-ioam-data-14, 24 June 2021,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-ippm-
-              ioam-data-14>.
+              <https://tools.ietf.org/html/draft-ietf-ippm-ioam-data-
+              14>.
 
 
 
@@ -725,7 +725,7 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                [Page 13]
+Mirsky, et al.           Expires 7 January 2022                [Page 13]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -735,16 +735,15 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
               Bhandari, S., Sivakolundu, R., and T. Mizrahi, "In-situ
               OAM Direct Exporting", Work in Progress, Internet-Draft,
               draft-ietf-ippm-ioam-direct-export-04, 1 July 2021,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-ippm-
-              ioam-direct-export-04>.
+              <https://tools.ietf.org/html/draft-ietf-ippm-ioam-direct-
+              export-04>.
 
    [I-D.mirsky-ippm-hybrid-two-step]
               Mirsky, G., Lingqiang, W., Zhui, G., and H. Song, "Hybrid
               Two-Step Performance Measurement Method", Work in
               Progress, Internet-Draft, draft-mirsky-ippm-hybrid-two-
-              step-10, 17 May 2021,
-              <https://datatracker.ietf.org/doc/html/draft-mirsky-ippm-
-              hybrid-two-step-10>.
+              step-10, 17 May 2021, <https://tools.ietf.org/html/draft-
+              mirsky-ippm-hybrid-two-step-10>.
 
    [RFC2544]  Bradner, S. and J. McQuaid, "Benchmarking Methodology for
               Network Interconnect Devices", RFC 2544,
@@ -781,7 +780,8 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                [Page 14]
+
+Mirsky, et al.           Expires 7 January 2022                [Page 14]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -837,7 +837,7 @@ Authors' Addresses
 
 
 
-Mirsky, et al.           Expires 2 January 2022                [Page 15]
+Mirsky, et al.           Expires 7 January 2022                [Page 15]
 
 Internet-Draft         Framework of OAM for DetNet             July 2021
 
@@ -893,4 +893,4 @@ Internet-Draft         Framework of OAM for DetNet             July 2021
 
 
 
-Mirsky, et al.           Expires 2 January 2022                [Page 16]
+Mirsky, et al.           Expires 7 January 2022                [Page 16]
