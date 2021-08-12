@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0042)https://www6.ietf.org/rfcdiff/rfcdiff.pyht -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+   
+  <meta http-equiv="Content-Style-Type" content="text/css"> 
+  <title>Diff: draft-ietf-detnet-oam-framework-03.txt - draft-ietf-detnet-oam-framework-04.txt</title> 
+  <style type="text/css"> 
+    body    { margin: 0.4ex; margin-right: auto; } 
+    tr      { } 
+    td      { white-space: pre; font-family: monospace; vertical-align: top; font-size: 0.86em;} 
+    th      { font-size: 0.86em; } 
+    .small  { font-size: 0.6em; font-style: italic; font-family: Verdana, Helvetica, sans-serif; } 
+    .left   { background-color: #EEE; } 
+    .right  { background-color: #FFF; } 
+    .diff   { background-color: #CCF; } 
+    .lblock { background-color: #BFB; } 
+    .rblock { background-color: #FF8; } 
+    .insert { background-color: #8FF; } 
+    .delete { background-color: #ACF; } 
+    .void   { background-color: #FFB; } 
+    .cont   { background-color: #EEE; } 
+    .linebr { background-color: #AAA; } 
+    .lineno { color: red; background-color: #FFF; font-size: 0.7em; text-align: right; padding: 0 2px; } 
+    .elipsis{ background-color: #AAA; } 
+    .left .cont { background-color: #DDD; } 
+    .right .cont { background-color: #EEE; } 
+    .lblock .cont { background-color: #9D9; } 
+    .rblock .cont { background-color: #DD6; } 
+    .insert .cont { background-color: #0DD; } 
+    .delete .cont { background-color: #8AD; } 
+    .stats, .stats td, .stats th { background-color: #EEE; padding: 2px 0; } 
+    span.hide { display: none; color: #aaa;}    a:hover span { display: inline; }    tr.change { background-color: gray; } 
+    tr.change a { text-decoration: none; color: black } 
+  </style> 
+     <script>
+var chunk_index = 0;
+var old_chunk = null;
+
+function format_chunk(index) {
+    var prefix = "diff";
+    var str = index.toString();
+    for (x=0; x<(4-str.length); ++x) {
+        prefix+='0';
+    }
+    return prefix + str;
+}
+
+function find_chunk(n){
+    return document.querySelector('tr[id$="' + n + '"]');
+}
+
+function change_chunk(offset) {
+    var index = chunk_index + offset;
+    var new_str;
+    var new_chunk;
+
+    new_str = format_chunk(index);
+    new_chunk = find_chunk(new_str);
+    if (!new_chunk) {
+        return;
+    }
+    if (old_chunk) {
+        old_chunk.style.outline = "";
+    }
+    old_chunk = new_chunk;
+    old_chunk.style.outline = "1px solid red";
+    window.location.hash = "#" + new_str;
+    window.scrollBy(0,-100);
+    chunk_index = index;
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+    case 78:
+        change_chunk(1);
+        break;
+    case 80:
+        change_chunk(-1);
+        break;
+    }
+};
+   </script> 
+</head> 
+<body data-new-gr-c-s-check-loaded="14.1026.0" data-gr-ext-installed=""> 
+  <table border="0" cellpadding="0" cellspacing="0"> 
+  <tbody><tr id="part-1" bgcolor="orange"><th></th><th><a href="https://www6.ietf.org/rfcdiff?url2=draft-ietf-detnet-oam-framework-03.txt" style="color:#008; text-decoration:none;">&lt;</a>&nbsp;<a href="https://tools.ietf.org/html/draft-ietf-detnet-oam-framework-03.txt" style="color:#008">draft-ietf-detnet-oam-framework-03.txt</a>&nbsp;</th><th> </th><th>&nbsp;<a href="https://tools.ietf.org/html/draft-ietf-detnet-oam-framework-04.txt" style="color:#008">draft-ietf-detnet-oam-framework-04.txt</a>&nbsp;<a href="https://www6.ietf.org/rfcdiff?url1=draft-ietf-detnet-oam-framework-04.txt" style="color:#008; text-decoration:none;">&gt;</a></th><th></th></tr> 
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">DetNet                                                         G. Mirsky</td><td> </td><td class="right">DetNet                                                         G. Mirsky</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">Internet-Draft                                                 ZTE Corp.</td><td> </td><td class="right">Internet-Draft                                                 ZTE Corp.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">Intended status: Informational                              F. Theoleyre</td><td> </td><td class="right">Intended status: Informational                              F. Theoleyre</td><td class="lineno"></td></tr>
+      <tr id="diff0001"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">Expires: <span class="delete">2 January 2022  </span>                                           CNRS</td><td> </td><td class="rblock">Expires: <span class="insert">13 February 2022</span>                                           CNRS</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">                                                       G.Z. Papadopoulos</td><td> </td><td class="right">                                                       G.Z. Papadopoulos</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">                                                          IMT Atlantique</td><td> </td><td class="right">                                                          IMT Atlantique</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">                                                           CJ. Bernardos</td><td> </td><td class="right">                                                           CJ. Bernardos</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">                                                                    UC3M</td><td> </td><td class="right">                                                                    UC3M</td><td class="lineno"></td></tr>
+      <tr id="diff0002"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">                                                             <span class="delete">1 July</span> 2021</td><td> </td><td class="rblock">                                                                <span class="insert">B. Varga</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                                                               J. Farkas</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                                                                Ericsson</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                                                          12 August</span> 2021</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Framework of Operations, Administration and Maintenance (OAM) for</td><td> </td><td class="right">   Framework of Operations, Administration and Maintenance (OAM) for</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">                   Deterministic Networking (DetNet)</td><td> </td><td class="right">                   Deterministic Networking (DetNet)</td><td class="lineno"></td></tr>
+      <tr id="diff0003"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">                   draft-ietf-detnet-oam-framework-0<span class="delete">3</span></td><td> </td><td class="rblock">                   draft-ietf-detnet-oam-framework-0<span class="insert">4</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">Abstract</td><td> </td><td class="right">Abstract</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Deterministic Networking (DetNet), as defined in RFC 8655, is aimed</td><td> </td><td class="right">   Deterministic Networking (DetNet), as defined in RFC 8655, is aimed</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   to provide a bounded end-to-end latency on top of the network</td><td> </td><td class="right">   to provide a bounded end-to-end latency on top of the network</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   infrastructure, comprising both Layer 2 bridged and Layer 3 routed</td><td> </td><td class="right">   infrastructure, comprising both Layer 2 bridged and Layer 3 routed</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   segments.  This document's primary purpose is to detail the specific</td><td> </td><td class="right">   segments.  This document's primary purpose is to detail the specific</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   requirements of the Operation, Administration, and Maintenance (OAM)</td><td> </td><td class="right">   requirements of the Operation, Administration, and Maintenance (OAM)</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   recommended to maintain a deterministic network.  With the</td><td> </td><td class="right">   recommended to maintain a deterministic network.  With the</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   implementation of the OAM framework in DetNet, an operator will have</td><td> </td><td class="right">   implementation of the OAM framework in DetNet, an operator will have</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="part-2" class="change"><td></td><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-2"><em> page 1, line 46<span class="hide"> ¶</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-2"><em> page 1, line 49<span class="hide"> ¶</span></em></a></th><td></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Internet-Drafts are working documents of the Internet Engineering</td><td> </td><td class="right">   Internet-Drafts are working documents of the Internet Engineering</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Task Force (IETF).  Note that other groups may also distribute</td><td> </td><td class="right">   Task Force (IETF).  Note that other groups may also distribute</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   working documents as Internet-Drafts.  The list of current Internet-</td><td> </td><td class="right">   working documents as Internet-Drafts.  The list of current Internet-</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Drafts is at https://datatracker.ietf.org/drafts/current/.</td><td> </td><td class="right">   Drafts is at https://datatracker.ietf.org/drafts/current/.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Internet-Drafts are draft documents valid for a maximum of six months</td><td> </td><td class="right">   Internet-Drafts are draft documents valid for a maximum of six months</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   and may be updated, replaced, or obsoleted by other documents at any</td><td> </td><td class="right">   and may be updated, replaced, or obsoleted by other documents at any</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   time.  It is inappropriate to use Internet-Drafts as reference</td><td> </td><td class="right">   time.  It is inappropriate to use Internet-Drafts as reference</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   material or to cite them other than as "work in progress."</td><td> </td><td class="right">   material or to cite them other than as "work in progress."</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="diff0004"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   This Internet-Draft will expire on <span class="delete">2 Jan</span>uary 2022.</td><td> </td><td class="rblock">   This Internet-Draft will expire on <span class="insert">13 Febr</span>uary 2022.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">Copyright Notice</td><td> </td><td class="right">Copyright Notice</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Copyright (c) 2021 IETF Trust and the persons identified as the</td><td> </td><td class="right">   Copyright (c) 2021 IETF Trust and the persons identified as the</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   document authors.  All rights reserved.</td><td> </td><td class="right">   document authors.  All rights reserved.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   This document is subject to BCP 78 and the IETF Trust's Legal</td><td> </td><td class="right">   This document is subject to BCP 78 and the IETF Trust's Legal</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Provisions Relating to IETF Documents (https://trustee.ietf.org/</td><td> </td><td class="right">   Provisions Relating to IETF Documents (https://trustee.ietf.org/</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   license-info) in effect on the date of publication of this document.</td><td> </td><td class="right">   license-info) in effect on the date of publication of this document.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Please review these documents carefully, as they describe your rights</td><td> </td><td class="right">   Please review these documents carefully, as they describe your rights</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="part-3" class="change"><td></td><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-3"><em> page 2, line 27<span class="hide"> ¶</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-3"><em> page 2, line 27<span class="hide"> ¶</span></em></a></th><td></td></tr>
+      <tr><td class="lineno"></td><td class="left">   provided without warranty as described in the Simplified BSD License.</td><td> </td><td class="right">   provided without warranty as described in the Simplified BSD License.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">Table of Contents</td><td> </td><td class="right">Table of Contents</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3</td><td> </td><td class="right">   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     1.1.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3</td><td> </td><td class="right">     1.1.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     1.2.  Acronyms  . . . . . . . . . . . . . . . . . . . . . . . .   4</td><td> </td><td class="right">     1.2.  Acronyms  . . . . . . . . . . . . . . . . . . . . . . . .   4</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     1.3.  Requirements Language . . . . . . . . . . . . . . . . . .   5</td><td> </td><td class="right">     1.3.  Requirements Language . . . . . . . . . . . . . . . . . .   5</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   2.  Role of OAM in DetNet . . . . . . . . . . . . . . . . . . . .   5</td><td> </td><td class="right">   2.  Role of OAM in DetNet . . . . . . . . . . . . . . . . . . . .   5</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   3.  Operation . . . . . . . . . . . . . . . . . . . . . . . . . .   6</td><td> </td><td class="right">   3.  Operation . . . . . . . . . . . . . . . . . . . . . . . . . .   6</td><td class="lineno"></td></tr>
+      <tr id="diff0005"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">     3.1.  Information Collection  . . . . . . . . . . . . . . . . .   <span class="delete">6</span></td><td> </td><td class="rblock">     3.1.  Information Collection  . . . . . . . . . . . . . . . . .   <span class="insert">7</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     3.2.  Continuity Check  . . . . . . . . . . . . . . . . . . . .   7</td><td> </td><td class="right">     3.2.  Continuity Check  . . . . . . . . . . . . . . . . . . . .   7</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     3.3.  Connectivity Verification . . . . . . . . . . . . . . . .   7</td><td> </td><td class="right">     3.3.  Connectivity Verification . . . . . . . . . . . . . . . .   7</td><td class="lineno"></td></tr>
+      <tr id="diff0006"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">     3.4.  Route Tracing . . . . . . . . . . . . . . . . . . . . . .   <span class="delete">7</span></td><td> </td><td class="rblock">     3.4.  Route Tracing . . . . . . . . . . . . . . . . . . . . . .   <span class="insert">8</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     3.5.  Fault Verification/detection  . . . . . . . . . . . . . .   8</td><td> </td><td class="right">     3.5.  Fault Verification/detection  . . . . . . . . . . . . . .   8</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     3.6.  Fault Localization and Characterization . . . . . . . . .   8</td><td> </td><td class="right">     3.6.  Fault Localization and Characterization . . . . . . . . .   8</td><td class="lineno"></td></tr>
+      <tr id="diff0007"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">     3.7.  Use of Hybrid OAM in DetNet . . . . . . . . . . . . . . .   <span class="delete">8</span></td><td> </td><td class="rblock">     3.7.  Use of Hybrid OAM in DetNet . . . . . . . . . . . . . . .   <span class="insert">9</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   4.  Administration  . . . . . . . . . . . . . . . . . . . . . . .   9</td><td> </td><td class="right">   4.  Administration  . . . . . . . . . . . . . . . . . . . . . . .   9</td><td class="lineno"></td></tr>
+      <tr id="diff0008"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">     4.1.  Collection of metrics . . . . . . . . . . . . . . . . . .  <span class="delete"> 9</span></td><td> </td><td class="rblock">     4.1.  Collection of metrics . . . . . . . . . . . . . . . . . .  <span class="insert">10</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     4.2.  Worst-case metrics  . . . . . . . . . . . . . . . . . . .  10</td><td> </td><td class="right">     4.2.  Worst-case metrics  . . . . . . . . . . . . . . . . . . .  10</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   5.  Maintenance . . . . . . . . . . . . . . . . . . . . . . . . .  10</td><td> </td><td class="right">   5.  Maintenance . . . . . . . . . . . . . . . . . . . . . . . . .  10</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     5.1.  Replication / Elimination . . . . . . . . . . . . . . . .  10</td><td> </td><td class="right">     5.1.  Replication / Elimination . . . . . . . . . . . . . . . .  10</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     5.2.  Resource Reservation  . . . . . . . . . . . . . . . . . .  11</td><td> </td><td class="right">     5.2.  Resource Reservation  . . . . . . . . . . . . . . . . . .  11</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">     5.3.  Soft transition after reconfiguration . . . . . . . . . .  11</td><td> </td><td class="right">     5.3.  Soft transition after reconfiguration . . . . . . . . . .  11</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   6.  Requirements  . . . . . . . . . . . . . . . . . . . . . . . .  11</td><td> </td><td class="right">   6.  Requirements  . . . . . . . . . . . . . . . . . . . . . . . .  11</td><td class="lineno"></td></tr>
+      <tr id="diff0009"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">     6.1.  Requirements on OAM for DetNet Service Sub-layer  . . . .  13</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  13</td><td> </td><td class="right">   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  13</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  13</td><td> </td><td class="right">   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  13</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  13</td><td> </td><td class="right">   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  13</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  13</td><td> </td><td class="right">   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  13</td><td class="lineno"></td></tr>
+      <tr id="diff0010"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">     10.1.  Normative References . . . . . . . . . . . . . . . . . .  <span class="delete">13</span></td><td> </td><td class="rblock">     10.1.  Normative References . . . . . . . . . . . . . . . . . .  <span class="insert">14</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">     10.2.  Informative References . . . . . . . . . . . . . . . . .  <span class="delete">13</span></td><td> </td><td class="rblock">     10.2.  Informative References . . . . . . . . . . . . . . . . .  <span class="insert">14</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  15</td><td> </td><td class="right">   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  15</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">1.  Introduction</td><td> </td><td class="right">1.  Introduction</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Deterministic Networking (DetNet) [RFC8655] has proposed to provide a</td><td> </td><td class="right">   Deterministic Networking (DetNet) [RFC8655] has proposed to provide a</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   bounded end-to-end latency on top of the network infrastructure,</td><td> </td><td class="right">   bounded end-to-end latency on top of the network infrastructure,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   comprising both Layer 2 bridged and Layer 3 routed segments.  That</td><td> </td><td class="right">   comprising both Layer 2 bridged and Layer 3 routed segments.  That</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   work encompasses the data plane, OAM, time synchronization,</td><td> </td><td class="right">   work encompasses the data plane, OAM, time synchronization,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   management, control, and security aspects.</td><td> </td><td class="right">   management, control, and security aspects.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="part-4" class="change"><td></td><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-4"><em> page 4, line 52<span class="hide"> ¶</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-4"><em> page 4, line 52<span class="hide"> ¶</span></em></a></th><td></td></tr>
+      <tr><td class="lineno"></td><td class="left">      packets in a DetNet flow are used as triggers.  Collection of the</td><td> </td><td class="right">      packets in a DetNet flow are used as triggers.  Collection of the</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">      on-path telemetry information can be performed using in-band or</td><td> </td><td class="right">      on-path telemetry information can be performed using in-band or</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">      out-of-band OAM methods.</td><td> </td><td class="right">      out-of-band OAM methods.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">1.2.  Acronyms</td><td> </td><td class="right">1.2.  Acronyms</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   OAM: Operations, Administration, and Maintenance</td><td> </td><td class="right">   OAM: Operations, Administration, and Maintenance</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   DetNet: Deterministic Networking</td><td> </td><td class="right">   DetNet: Deterministic Networking</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="diff0011"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   PREOF: Packet Replication, Elimination and Ordering Functions</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   SLO: Service Level Objective</td><td> </td><td class="right">   SLO: Service Level Objective</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">1.3.  Requirements Language</td><td> </td><td class="right">1.3.  Requirements Language</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",</td><td> </td><td class="right">   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and</td><td> </td><td class="right">   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   "OPTIONAL" in this document are to be interpreted as described in BCP</td><td> </td><td class="right">   "OPTIONAL" in this document are to be interpreted as described in BCP</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   14 [RFC2119] [RFC8174] when, and only when, they appear in all</td><td> </td><td class="right">   14 [RFC2119] [RFC8174] when, and only when, they appear in all</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   capitals, as shown here.</td><td> </td><td class="right">   capitals, as shown here.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="part-5" class="change"><td></td><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-5"><em> page 5, line 49<span class="hide"> ¶</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-5"><em> page 5, line 50<span class="hide"> ¶</span></em></a></th><td></td></tr>
+      <tr><td class="lineno"></td><td class="left">   flow.</td><td> </td><td class="right">   flow.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   There are several DetNet specific challenges for OAM.  Bounded</td><td> </td><td class="right">   There are several DetNet specific challenges for OAM.  Bounded</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   network characteristics (e.g., delay, loss) are inseparable service</td><td> </td><td class="right">   network characteristics (e.g., delay, loss) are inseparable service</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   parameters; therefore, PM is a key topic for DetNet.  OAM tools are</td><td> </td><td class="right">   parameters; therefore, PM is a key topic for DetNet.  OAM tools are</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   needed to prove the SLO without impacting the DetNet flow</td><td> </td><td class="right">   needed to prove the SLO without impacting the DetNet flow</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   characteristics.  A further challenge is the strict resource</td><td> </td><td class="right">   characteristics.  A further challenge is the strict resource</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   allocation.  Resources used by OAM must be considered and allocated</td><td> </td><td class="right">   allocation.  Resources used by OAM must be considered and allocated</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   to avoid disturbing DetNet flow(s).</td><td> </td><td class="right">   to avoid disturbing DetNet flow(s).</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="diff0012"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   The DetNet Working Group has defined two sub-layers: <span class="delete">(1)</span> DetNet</td><td> </td><td class="rblock">   The DetNet Working Group has defined two sub-layers:</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   service sub-layer, at which a DetNet service (e.g., service</td><td> </td><td class="rblock">                                                                         </td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   protection) is <span class="delete">provided and (2)</span> DetNet forwarding sub-layer, which</td><td> </td><td class="rblock">      DetNet service sub-layer, at which a DetNet service (e.g., service</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   optionally provides resource allocation for DetNet flows over paths</td><td> </td><td class="rblock">      protection) is <span class="insert">provided.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   provided by the underlying network.  OAM mechanisms exist for the</td><td> </td><td class="rblock">                                                                         </td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   DetNet forwarding sub-layer, nonetheless, OAM for the service <span class="delete">sub-</span></td><td> </td><td class="rblock">      DetNet forwarding sub-layer, which optionally provides resource</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"><span class="delete">   layer</span> requires new OAM procedures.  These new OAM functions must</td><td> </td><td class="rblock">      allocation for DetNet flows over paths provided by the underlying</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   allow, for example, to recognize/discover DetNet relay nodes, to get</td><td> </td><td class="rblock">      network.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   information about their configuration, and to check their operation</td><td> </td><td class="rblock">                                                                         </td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">   or status.</td><td> </td><td class="rblock">   OAM mechanisms exist for the DetNet forwarding sub-layer,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">   nonetheless, OAM for the service <span class="insert">sub-layer</span> requires new OAM</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">   procedures.  These new OAM functions must allow, for example, to</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">   recognize/discover DetNet relay nodes, to get information about their</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">   configuration, and to check their operation or status.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   DetNet service sub-layer functions using a sequence number.  That</td><td> </td><td class="right">   DetNet service sub-layer functions using a sequence number.  That</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   creates a challenge for inserting OAM packets in the DetNet flow.</td><td> </td><td class="right">   creates a challenge for inserting OAM packets in the DetNet flow.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Fault tolerance also assumes that multiple paths could be provisioned</td><td> </td><td class="right">   Fault tolerance also assumes that multiple paths could be provisioned</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   to maintain an end-to-end circuit by adapting to the existing</td><td> </td><td class="right">   to maintain an end-to-end circuit by adapting to the existing</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   conditions.  The central controller/orchestrator typically controls</td><td> </td><td class="right">   conditions.  The central controller/orchestrator typically controls</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   the PREOF on a node.  OAM is expected to support monitoring and</td><td> </td><td class="right">   the PREOF on a node.  OAM is expected to support monitoring and</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   troubleshooting PREOF on a particular node and within the domain.</td><td> </td><td class="right">   troubleshooting PREOF on a particular node and within the domain.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="part-6" class="change"><td></td><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-6"><em> page 13, line 5<span class="hide"> ¶</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-6"><em> page 13, line 15<span class="hide"> ¶</span></em></a></th><td></td></tr>
+      <tr><td class="lineno"></td><td class="left">   18.  DetNet OAM MUST support testing of Packet Replication,</td><td> </td><td class="right">   18.  DetNet OAM MUST support testing of Packet Replication,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">        Elimination, and Order preservation sub-functions in the domain.</td><td> </td><td class="right">        Elimination, and Order preservation sub-functions in the domain.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   19.  DetNet OAM MUST support monitoring levels of resources allocated</td><td> </td><td class="right">   19.  DetNet OAM MUST support monitoring levels of resources allocated</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">        for the particular DetNet flow.  Such resources include but not</td><td> </td><td class="right">        for the particular DetNet flow.  Such resources include but not</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">        limited to buffer utilization, scheduler transmission calendar.</td><td> </td><td class="right">        limited to buffer utilization, scheduler transmission calendar.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   20.  DetNet OAM MUST support monitoring any sub-set of paths</td><td> </td><td class="right">   20.  DetNet OAM MUST support monitoring any sub-set of paths</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">        traversed through the DetNet domain by the DetNet flow.</td><td> </td><td class="right">        traversed through the DetNet domain by the DetNet flow.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="diff0013"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">6.1.  Requirements on OAM for DetNet Service Sub-layer</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   The OAM functions for the DetNet service sub-layer allow, for</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   example, to recognize/discover DetNet relay nodes, to get information</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   about their configuration, and to check their operation or status.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   The requirements on OAM for a DetNet relay node are:</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   1.  DetNet OAM MUST provide OAM functions for the DetNet service sub-</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       layer.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   2.  DetNet OAM MUST support the discovery of DetNet relay nodes in a</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       DetNet network.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   3.  DetNet OAM MUST support the collection of the DetNet service sub-</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       layer specific (e.g., configuration/operation/status) information</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       from DetNet relay nodes.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   4.  DetNet OAM MUST work for DetNet data planes - MPLS and IP.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">                                                                         </td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">7.  IANA Considerations</td><td> </td><td class="right">7.  IANA Considerations</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   This document has no actionable requirements for IANA.  This section</td><td> </td><td class="right">   This document has no actionable requirements for IANA.  This section</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   can be removed before the publication.</td><td> </td><td class="right">   can be removed before the publication.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">8.  Security Considerations</td><td> </td><td class="right">8.  Security Considerations</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   This document lists the OAM requirements for a DetNet domain and does</td><td> </td><td class="right">   This document lists the OAM requirements for a DetNet domain and does</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   not raise any security concerns or issues in addition to ones common</td><td> </td><td class="right">   not raise any security concerns or issues in addition to ones common</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   to networking and those specific to a DetNet discussed in [RFC9055].</td><td> </td><td class="right">   to networking and those specific to a DetNet discussed in [RFC9055].</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="part-7" class="change"><td></td><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-7"><em> page 14, line 9<span class="hide"> ¶</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-7"><em> page 14, line 33<span class="hide"> ¶</span></em></a></th><td></td></tr>
+      <tr><td class="lineno"></td><td class="left">              Brockners, F., Bhandari, S., and T. Mizrahi, "Data Fields</td><td> </td><td class="right">              Brockners, F., Bhandari, S., and T. Mizrahi, "Data Fields</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              for In-situ OAM", Work in Progress, Internet-Draft, draft-</td><td> </td><td class="right">              for In-situ OAM", Work in Progress, Internet-Draft, draft-</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              ietf-ippm-ioam-data-14, 24 June 2021,</td><td> </td><td class="right">              ietf-ippm-ioam-data-14, 24 June 2021,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              &lt;https://datatracker.ietf.org/doc/html/draft-ietf-ippm-</td><td> </td><td class="right">              &lt;https://datatracker.ietf.org/doc/html/draft-ietf-ippm-</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              ioam-data-14&gt;.</td><td> </td><td class="right">              ioam-data-14&gt;.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   [I-D.ietf-ippm-ioam-direct-export]</td><td> </td><td class="right">   [I-D.ietf-ippm-ioam-direct-export]</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              Song, H., Gafni, B., Zhou, T., Li, Z., Brockners, F.,</td><td> </td><td class="right">              Song, H., Gafni, B., Zhou, T., Li, Z., Brockners, F.,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              Bhandari, S., Sivakolundu, R., and T. Mizrahi, "In-situ</td><td> </td><td class="right">              Bhandari, S., Sivakolundu, R., and T. Mizrahi, "In-situ</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              OAM Direct Exporting", Work in Progress, Internet-Draft,</td><td> </td><td class="right">              OAM Direct Exporting", Work in Progress, Internet-Draft,</td><td class="lineno"></td></tr>
+      <tr id="diff0014"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">              draft-ietf-ippm-ioam-direct-export-0<span class="delete">4, 1 July</span> 2021,</td><td> </td><td class="rblock">              draft-ietf-ippm-ioam-direct-export-0<span class="insert">6, 8 August</span> 2021,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              &lt;https://datatracker.ietf.org/doc/html/draft-ietf-ippm-</td><td> </td><td class="right">              &lt;https://datatracker.ietf.org/doc/html/draft-ietf-ippm-</td><td class="lineno"></td></tr>
+      <tr id="diff0015"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">              ioam-direct-export-0<span class="delete">4</span>&gt;.</td><td> </td><td class="rblock">              ioam-direct-export-0<span class="insert">6</span>&gt;.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   [I-D.mirsky-ippm-hybrid-two-step]</td><td> </td><td class="right">   [I-D.mirsky-ippm-hybrid-two-step]</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              Mirsky, G., Lingqiang, W., Zhui, G., and H. Song, "Hybrid</td><td> </td><td class="right">              Mirsky, G., Lingqiang, W., Zhui, G., and H. Song, "Hybrid</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              Two-Step Performance Measurement Method", Work in</td><td> </td><td class="right">              Two-Step Performance Measurement Method", Work in</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              Progress, Internet-Draft, draft-mirsky-ippm-hybrid-two-</td><td> </td><td class="right">              Progress, Internet-Draft, draft-mirsky-ippm-hybrid-two-</td><td class="lineno"></td></tr>
+      <tr id="diff0016"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">              step-1<span class="delete">0, 17 Ma</span>y 2021,</td><td> </td><td class="rblock">              step-1<span class="insert">1, 8 Jul</span>y 2021,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              &lt;https://datatracker.ietf.org/doc/html/draft-mirsky-ippm-</td><td> </td><td class="right">              &lt;https://datatracker.ietf.org/doc/html/draft-mirsky-ippm-</td><td class="lineno"></td></tr>
+      <tr id="diff0017"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock">              hybrid-two-step-1<span class="delete">0</span>&gt;.</td><td> </td><td class="rblock">              hybrid-two-step-1<span class="insert">1</span>&gt;.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   [RFC2544]  Bradner, S. and J. McQuaid, "Benchmarking Methodology for</td><td> </td><td class="right">   [RFC2544]  Bradner, S. and J. McQuaid, "Benchmarking Methodology for</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              Network Interconnect Devices", RFC 2544,</td><td> </td><td class="right">              Network Interconnect Devices", RFC 2544,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              DOI 10.17487/RFC2544, March 1999,</td><td> </td><td class="right">              DOI 10.17487/RFC2544, March 1999,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              &lt;https://www.rfc-editor.org/info/rfc2544&gt;.</td><td> </td><td class="right">              &lt;https://www.rfc-editor.org/info/rfc2544&gt;.</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   [RFC6291]  Andersson, L., van Helvoort, H., Bonica, R., Romascanu,</td><td> </td><td class="right">   [RFC6291]  Andersson, L., van Helvoort, H., Bonica, R., Romascanu,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              D., and S. Mansfield, "Guidelines for the Use of the "OAM"</td><td> </td><td class="right">              D., and S. Mansfield, "Guidelines for the Use of the "OAM"</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              Acronym in the IETF", BCP 161, RFC 6291,</td><td> </td><td class="right">              Acronym in the IETF", BCP 161, RFC 6291,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">              DOI 10.17487/RFC6291, June 2011,</td><td> </td><td class="right">              DOI 10.17487/RFC6291, June 2011,</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr id="part-8" class="change"><td></td><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-8"><em> line 702<span class="hide"> ¶</span></em></a></th><th> </th><th><small>skipping to change at</small><a href="https://www6.ietf.org/rfcdiff/rfcdiff.pyht#part-8"><em> page 16, line 30<span class="hide"> ¶</span></em></a></th><td></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Carlos J. Bernardos</td><td> </td><td class="right">   Carlos J. Bernardos</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Universidad Carlos III de Madrid</td><td> </td><td class="right">   Universidad Carlos III de Madrid</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Av. Universidad, 30</td><td> </td><td class="right">   Av. Universidad, 30</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   28911 Leganes, Madrid</td><td> </td><td class="right">   28911 Leganes, Madrid</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Spain</td><td> </td><td class="right">   Spain</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left"></td><td> </td><td class="right"></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Phone: +34 91624 6236</td><td> </td><td class="right">   Phone: +34 91624 6236</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   Email: cjbc@it.uc3m.es</td><td> </td><td class="right">   Email: cjbc@it.uc3m.es</td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="left">   URI:   http://www.it.uc3m.es/cjbc/</td><td> </td><td class="right">   URI:   http://www.it.uc3m.es/cjbc/</td><td class="lineno"></td></tr>
+      <tr id="diff0018"><td></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">                                                                         </td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock">   <span class="insert">Balazs Varga</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Ericsson</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Budapest</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Magyar Tudosok krt. 11.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   1117</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Hungary</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Email: balazs.a.varga@ericsson.com</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Janos Farkas</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Ericsson</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Budapest</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Magyar Tudosok krt. 11.</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   1117</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Hungary</span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td><td class="lineno"></td></tr>
+      <tr><td class="lineno"></td><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">   Email: janos.farkas@ericsson.com</span></td><td class="lineno"></td></tr>
+
+     <tr><td></td><td class="left"></td><td> </td><td class="right"></td><td></td></tr>
+     <tr id="end" bgcolor="gray"><th colspan="5" align="center">&nbsp;End of changes. 18 change blocks.&nbsp;</th></tr>
+     <tr class="stats"><td></td><th><i>24 lines changed or deleted</i></th><th><i> </i></th><th><i>53 lines changed or added</i></th><td></td></tr>
+     <tr><td colspan="5" align="center" class="small"><br>This html diff was produced by rfcdiff 1.48. The latest version is available from <a href="http://www.tools.ietf.org/tools/rfcdiff/">http://tools.ietf.org/tools/rfcdiff/</a> </td></tr>
+   </tbody></table>
+   
+   
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
